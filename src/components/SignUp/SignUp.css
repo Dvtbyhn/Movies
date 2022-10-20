@@ -1,0 +1,28 @@
+.navLink{
+    color: white;
+    text-decoration: none;
+   
+}
+
+.container-sign {
+ margin-top: 5rem;
+ text-align: center;
+}
+
+.card-sign{
+    color: white;
+    display: inline-block;
+    width: 30rem;
+}
+
+
+.body-sign{
+    padding: 1rem;
+    text-align: center;
+}
+
+.alert {
+    background-color: green;
+    color: white;
+}
+
