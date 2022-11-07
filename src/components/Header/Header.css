@@ -1,0 +1,47 @@
+ .link{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+
+}
+.not-link{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+
+}
+  .home{
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+
+}
+.home:hover{
+    color: white;
+}
+
+ul  { display: flex}
+
+ul li {  margin-left: 10px;}
+
+.favorite-length {
+ height: 40px;
+ width: 40px;
+ background-color: blueviolet;
+ 
+}
+
+@media (max-width:996px) {
+ul  { 
+    display: block;
+    text-align: center;
+}
+
+ul li {
+    font-size: xx-large;
+    margin: 10px;
+}
+    
+}
+
+

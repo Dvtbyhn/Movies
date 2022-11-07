@@ -9,7 +9,7 @@ export default function Page404() {
       <h1 
       style={{marginTop:"19rem"}}>
         Oooopsss!! Sayfa Bulunamadı... </h1>
-        <NavLink style={{color:"white"}}  to={"/app"}>Geri Dön </NavLink>
+        <NavLink style={{color:"white"}}  to={"/"}>Geri Dön </NavLink>
     </div>
   )
 }

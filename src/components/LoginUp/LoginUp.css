@@ -6,23 +6,13 @@ body{
 }
 
 .container-login{
-
     text-align: center;
     color:  whitesmoke;
-
-    
 }
 
-.card-login{
-display: inline-block;
-   
-}
+.card-login{display: inline-block;}
 
-
-.gif{
-    width: 100%;
-}
-
+.gif{width: 100%;}
 
 input {
     width: 20rem;

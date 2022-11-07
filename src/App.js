@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import Header from './components/Header'
 import MovieList from './components/MovieList/MovieList'
 import axios from "axios"
 import { Routes, Route } from 'react-router-dom';
 import LoginUp from './components/LoginUp/LoginUp';
 import SignUp from './components/SignUp/SignUp';
 import Page404 from './Page404';
+import Detail from './components/Detail/Detail';
+import Header from "./components/Header/Header"
+import UpdateProfile from './components/UpdateProfile';
+import toast, { Toaster } from 'react-hot-toast';
+import LikeMovie from './components/LikeMovie/LikeMovie';
 
 
 export default function App() {
@@ -13,7 +17,8 @@ export default function App() {
 
   const [film, setFilm] = useState([])
   const [search, setSearch] = useState("")
-
+  const [loading, setLoading] = useState(false)
+  const [favorite, setFavorite] = useState([])
 
 
   useEffect(() => {
@@ -22,38 +27,82 @@ export default function App() {
 
 
   const getMovies = async () => {
+    setLoading(true)
     const getData = await axios.get("http://localhost:3001/movies")
     setFilm(getData.data)
+    setLoading(false)
+
   }
 
-
-  const searchMovie = (e) => setSearch(e.target.value)
-
+  const searchMovie = (e) => { setSearch(e.target.value) }
 
   let filteredMovies = film.filter(
     (movie) => {
       return movie.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
     }
   ).sort((a, b) => {
-    return b.name < a.name ? 1  : -1
+    return b.name < a.name ? 1 : -1
   });
 
 
+  const detailMovie = async (id) => {
+    setLoading(true)
+    await axios.put(`http://localhost:3001/movies/${id}`)
+    getMovies();
+    setLoading(false)
+
+  }
+
+  const addToFavorite = id => {
+    const data = film.find(item => item.id === id);
+
+    setFavorite([...favorite, data])
+    toast.success("Film Favorilere Eklendi")
+
+  };
+
+  const deleteToFavorite = id => {
+    const del = favorite.filter(item => item.id !== id);
+    setFavorite(del);
+    toast.success("Film favorilerimden çıkarıldı")
+  };
 
   return (
     <div className='container'>
-     
-        <Header searchMovieProp={searchMovie} />
-        <Routes>
+      <Header searchMovie={searchMovie} favorite={favorite} />
+      <Toaster />
+      <Routes>
 
-          <Route path='/' element={<LoginUp />} />
-          <Route index path='/signUp' element={<SignUp />} />
-          <Route path='/app' element={ <MovieList  filteredMovies={filteredMovies} movies={film} /> }  />
-       
-          <Route path='*' element={<Page404 />} />
-        </Routes>
+        <Route path='/'
+          element={<MovieList
 
-   
+            addToFavorite={addToFavorite}
+            filteredMovies={filteredMovies}
+            movies={film}
+            loading={loading} />} />
+
+        <Route path='/update' element={<UpdateProfile />} />
+        <Route path='/signUp' element={<SignUp />} />
+        <Route path='/loginUp' element={<LoginUp />} />
+        <Route path='/detail/:id'
+          element={
+            <Detail
+              loading={loading}
+              detailMovie={(id, movie) => {
+                detailMovie(id, movie)
+              }} />} />
+        <Route path='/favorite'
+          element={<LikeMovie
+            favorite={favorite}
+            setFavorite={setFavorite}
+            deleteToFavorite={deleteToFavorite}
+            loading={loading} />} />
+
+
+        <Route path='*' element={<Page404 />} />
+      </Routes>
+
+
     </div>
   )
 }

@@ -142,7 +142,10 @@
       "rating": "8.2",
       "overview": "Aydın emekli bir tiyatrocudur; oyunculuğu bıraktıktan sonra Kapadokya'ya babasından yadigar kalan butik oteli işletmek için geri döner. Aydın o günden sonra başlayan kış uykusu bu gözlerden ırak otelin içerisindeki gündelikleriyle, kâh yerel bir gazeteye köşe yazıları yazarak kâh her zaman niyetlendiği ancak bir türlü başlayamadığı tiyatro tarihi kitabını yazmayı düşünerek geçer. Tüm bu süreçte hayatında iki kadın vardır: Kendisine her anlamda uzak ve soğuk davranan genç karısı Nihal ve boşandıktan sonra yanlarına taşınan kız kardeşi Necla... Kışın bastırması ve artan kar yağışı bu küçük taşrada en çok Aydın'ın sinirlerine dokunur ve onu uzaklara gitmeye teşvik eder...",
       "id": 28,
-      "kind": "Dram"
+      "kind": "Dram",
+       "cast":{
+        
+       }
     },
     {
       "name": "Forrest Gump",
