@@ -25,6 +25,14 @@ export default function App() {
     getMovies()
   }, [])
 
+  useEffect(() => {
+    const get = localStorage.getItem("favorites")
+    setFavorite(JSON.parse(get))
+  }, [])
+
+  useEffect(() => localStorage.setItem("favorites", JSON.stringify(favorite)))
+  
+  
 
   const getMovies = async () => {
     setLoading(true)
@@ -34,7 +42,7 @@ export default function App() {
 
   }
 
-  const searchMovie = (e) => { setSearch(e.target.value) }
+  const searchMovie = (e) => setSearch(e.target.value)
 
   let filteredMovies = film.filter(
     (movie) => {
@@ -48,17 +56,14 @@ export default function App() {
   const detailMovie = async (id) => {
     setLoading(true)
     await axios.put(`http://localhost:3001/movies/${id}`)
-    getMovies();
     setLoading(false)
 
   }
 
   const addToFavorite = id => {
-    const data = film.find(item => item.id === id);
-
-    setFavorite([...favorite, data])
+    const data = film.find(item => item.id === id)
+    setFavorite([...favorite,data])
     toast.success("Film Favorilere Eklendi")
-
   };
 
   const deleteToFavorite = id => {
@@ -66,6 +71,15 @@ export default function App() {
     setFavorite(del);
     toast.success("Film favorilerimden çıkarıldı")
   };
+
+  const deleteAllFavorite = () =>  setFavorite([])
+    
+
+  const truncateOverview = (string, maxLength) => {
+    if (!string) return null;
+    if (string.length <= maxLength) return string;
+    return `${string.substring(0, maxLength)} ...`;
+  }
 
   return (
     <div className='container'>
@@ -75,15 +89,17 @@ export default function App() {
 
         <Route path='/'
           element={<MovieList
-
+            truncateOverview={truncateOverview}
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
-            movies={film}
             loading={loading} />} />
 
         <Route path='/update' element={<UpdateProfile />} />
+
         <Route path='/signUp' element={<SignUp />} />
+
         <Route path='/loginUp' element={<LoginUp />} />
+
         <Route path='/detail/:id'
           element={
             <Detail
@@ -91,11 +107,14 @@ export default function App() {
               detailMovie={(id, movie) => {
                 detailMovie(id, movie)
               }} />} />
+
         <Route path='/favorite'
           element={<LikeMovie
+            deleteAllFavorite={deleteAllFavorite}
+            truncateOverview={truncateOverview}
             favorite={favorite}
-            setFavorite={setFavorite}
-            deleteToFavorite={deleteToFavorite}
+       
+                  deleteToFavorite={deleteToFavorite}
             loading={loading} />} />
 
 

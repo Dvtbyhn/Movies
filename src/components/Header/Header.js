@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout as logoutHandle } from '../../store/auth';
@@ -18,10 +18,6 @@ export default function Header({searchMovie,favorite}) {
 
  
   const { user } = useSelector(state => state.auth)
-
- useEffect(() => {
-        console.log("user",user)
-  },[user])
 
   const handleLogout = async () => {
     await logout()
@@ -43,12 +39,30 @@ export default function Header({searchMovie,favorite}) {
    <Nav className="me-auto"   >
    <ul style={{listStyle:"none",marginTop:"20px"}}>
    <li><NavLink className="home"  to={"/"}>Ana sayfa</NavLink></li>
+
    <li>{user ? "" : <NavLink className="link" to={"/signUp"}>Kayıt Ol</NavLink>}</li>
-   <li> { user ? <h5 className='mt-2'> {user.displayName} </h5> :<NavLink className="link" to={"/loginUp"}>Giriş Yap</NavLink>}</li>
-   <li>{user.photoURL ? <img src={user.photoURL} alt="" style={{width:"40px",height:"40px",borderRadius:"10px"}}/> :null}</li>
-   <li>{user ? <button onClick={handleLogout} className='link btn btn-dark'>Çıkış Yap</button> : null}</li>
+
+   <li> { user ? <h5 className='mt-2'> {user.displayName} </h5> :
+   <NavLink className="link" to={"/loginUp"}>Giriş Yap</NavLink>}</li>
+
+   <li>
+    {
+    user.photoURL ? <img src={user.photoURL} alt={user.photoURL}
+     style={{width:"40px",height:"40px",borderRadius:"10px"}}/> :null
+     }
+    </li>
+
+   <li>
+    {user ? <button onClick={handleLogout} className='link btn btn-dark'>Çıkış Yap</button> : null}
+    </li>
+      
+
    <li>{user ? <NavLink to={"/update"} className='link btn btn-dark'>Profil</NavLink> : null}</li>
-   <li>{user ? <NavLink to={"/favorite"} className='link btn btn-danger'>Favorilerim<span className='badge badge-light'>{favorite.length}</span></NavLink> : null}</li>
+
+   <li>
+    {user ? <NavLink to={"/favorite"} className='link btn btn-danger'>
+    Favorilerim<span className='badge badge-light'>{favorite.length}</span></NavLink> : null}
+    </li>
   </ul>
    </Nav>
 
