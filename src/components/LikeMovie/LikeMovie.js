@@ -29,8 +29,8 @@ return (
 return (
 <>
 
-<div key={i} className='col-xs-12 col-sm-12 col-md-6 col-lg-4 g-5'>
-<div className="card" style={{
+<div  className='col-xs-12 col-sm-12 col-md-6 col-lg-4 g-5'>
+<div key={i} className="card" style={{
 boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
 backgroundColor:"black",color:"white"
 }}>
