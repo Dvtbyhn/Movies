@@ -6,7 +6,8 @@ export default function LikeMovie({
 loading,
 favorite,
 deleteToFavorite,
-deleteAllFavorite
+deleteAllFavorite,
+setHeart
 }) 
 {
 
@@ -15,8 +16,11 @@ return (
 <div>
 
 <div className='row'>
+    
 {favorite.length > 1 ? <div className='col-12 text-end'>
-<button onClick={deleteAllFavorite} className='btn btn-danger'>Hepsini Sil</button>
+
+<button onClick={deleteAllFavorite}
+ className='btn btn-danger'>Hepsini Sil</button>
 </div> : null}
 
 
@@ -36,15 +40,16 @@ backgroundColor:"black",color:"white",
 
 <img src={movie.imageURL} className="card-img-top" alt=''   />
 <div className="card-body">
-<h5 className="card-title"> {movie.name}  </h5>
+<h5 className="card-title">{movie.name}</h5>
 
 <div>Puan: {movie.rating} </div>
 <div>Tür: {movie.kind} </div>
 <button 
 style={{ marginRight: "5px" }} 
 className='btn btn-danger'
- onClick={() => deleteToFavorite(movie.id)}> Favorimden Çıkar</button>
-<NavLink className='btn btn-success ' to={`/detail/${movie.id}`}> Detay</NavLink>
+ onClick={() => deleteToFavorite(movie.id)}>Favorimden Çıkar</button>
+<NavLink className='btn btn-success' 
+to={`/detail/${movie.id}`}> Detay</NavLink>
 
 </div>
 </div>

@@ -13,6 +13,7 @@ export default function MovieList({
   filteredMovies,
   loading,
   addToFavorite,
+  heart
 
 }) 
 {
@@ -39,13 +40,15 @@ backgroundColor:"black",color:"white"
  <img src={movie.imageURL} className="card-img-top" alt={movie.name}  />
  <div className="card-body">
 <h5 className="card-title"> {movie.name} </h5>
-<div >PUAN: {movie.rating} </div>
-<div >TÜR: {movie.kind} </div>
-{user ? <span onClick={() =>addToFavorite(movie.id)} className='heart-red'>
-  <FontAwesomeIcon icon="heart"/> </span> : null}
+<p className="card-text">  </p>
+<div className='card-footer  '>
+<div>PUAN: {movie.rating} </div>
+<div>TÜR: {movie.kind} </div>
+{user ? <span>
+<FontAwesomeIcon onClick={() =>addToFavorite(movie.id)} className={!heart ? "heart" : "heart-red"} size='xl' icon="heart"/> </span> : null}
 <NavLink className='btn btn-success' to={`/detail/${movie.id}`}> Detay</NavLink>
 </div>
-
+</div>
 </div>
 </div>
  )

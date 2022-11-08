@@ -3,10 +3,14 @@ img:hover{
     cursor: pointer;
 }
 
-.heart-red{
-  color:red;
+.heart{
+  color: white;
   font-size: x-large;
   cursor: pointer;
+}
+
+.heart-red {
+  color: red;
 }
 
 

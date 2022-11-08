@@ -19,7 +19,7 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-
+  const [heart , setHeart] = useState(false)
 
   useEffect(() => {
     getMovies()
@@ -32,7 +32,7 @@ export default function App() {
 
   useEffect(() => localStorage.setItem("favorites", JSON.stringify(favorite)))
 
-
+  
 
   const getMovies = async () => {
     setLoading(true)
@@ -53,6 +53,7 @@ export default function App() {
   });
 
 
+
   const detailMovie = async (id) => {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
@@ -63,14 +64,16 @@ export default function App() {
     const hasFavorite = favorite.find(item => item.id === id) 
      if (newFavorite) {
       setFavorite([...favorite, newFavorite])
-      toast.success("Favorilerim'e eklendi") 
-      if (hasFavorite) {
-    setFavorite([...favorite])
-    toast.error("Film zaten eklendi")
+       toast.success("Favorilerim'e eklendi") 
+       setHeart(true)
+     }
+    if (hasFavorite) {
+     setFavorite([...favorite])
+     toast.error("Film daha önce eklendi")
     }
-      
+    setHeart(false)
     }   
-  };
+  ;
 
   const deleteToFavorite = id => {
     const del = favorite.filter(item => item.id !== id);
@@ -81,7 +84,7 @@ export default function App() {
 
   const deleteAllFavorite = () => setFavorite([])
 
-
+ 
  
   return (
     <div className='container'>
@@ -91,6 +94,7 @@ export default function App() {
 
         <Route path='/'
           element={<MovieList
+          heart={heart}
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
             loading={loading} />} />
@@ -104,6 +108,7 @@ export default function App() {
         <Route path='/detail/:id'
           element={
             <Detail
+            setHeart={setHeart}
             addToFavorite={  addToFavorite}
               loading={loading}
               detailMovie={(id, movie) => {
@@ -112,9 +117,9 @@ export default function App() {
 
         <Route path='/favorite'
           element={<LikeMovie
+          setHeart={setHeart}
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
-
             deleteToFavorite={deleteToFavorite}
             loading={loading} />} />
 
