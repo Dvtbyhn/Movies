@@ -13,7 +13,7 @@ export default function MovieList({
   filteredMovies,
   loading,
   addToFavorite,
-  truncateOverview
+
 }) 
 {
 
@@ -30,24 +30,22 @@ export default function MovieList({
  
 filteredMovies.map((movie, i) => {
 return (
-<div key={i} className='col-md-12 col-lg-4 g-5'>
-<div className="card" style={{
+<div key={i} className='col-md-6 col-lg-4 g-5'>
+<div className="card text-center" style={{
 boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
 backgroundColor:"black",color:"white"
 }}>
     
- <img src={movie.imageURL} className="card-img-top" alt={movie.name} />
+ <img src={movie.imageURL} className="card-img-top" alt={movie.name}  />
  <div className="card-body">
 <h5 className="card-title"> {movie.name} </h5>
-<p className="card-text"> {truncateOverview(movie.overview, 100)} </p>
-<div className='d-flex justify-content-between'>
-<button className="btn btn-light" disabled> {movie.rating} </button>
-<button className='btn btn-light' disabled>{movie.kind} </button>
+<div >PUAN: {movie.rating} </div>
+<div >TÜR: {movie.kind} </div>
 {user ? <span onClick={() =>addToFavorite(movie.id)} className='heart-red'>
   <FontAwesomeIcon icon="heart"/> </span> : null}
 <NavLink className='btn btn-success' to={`/detail/${movie.id}`}> Detay</NavLink>
 </div>
-</div>
+
 </div>
 </div>
  )

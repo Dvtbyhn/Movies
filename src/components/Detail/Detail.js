@@ -30,9 +30,12 @@ export default function Detail({loading}) {
             </div>
           </div>
           <div className='col-xs-12 col-sm-12 col-md-6'>
-            <h4> Film Adı : {movie.name} </h4>
-            <p> <h4>Hakkında : </h4>{movie.overview} </p>
-            <p> <h4>Tür:</h4> {movie.kind} </p>
+            <h3>Filmin Adı</h3>
+            <h4> {movie.name} </h4>
+            <h3>Hakkında</h3>
+            <p>{movie.overview} </p>
+            <h3>Tür</h3>
+            <p>{movie.kind} </p>
           
           </div>
 

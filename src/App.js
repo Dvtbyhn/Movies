@@ -57,19 +57,19 @@ export default function App() {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
 
-  const addToFavorite = id => {
+    const addToFavorite = id => {
     const newFavorite = film.find(item => item.id === id)
-    const hasFavorite = favorite.find(item => item.id === id)
-    if   (newFavorite) {
+    const hasFavorite = favorite.find(item => item.id === id) 
+     if (newFavorite) {
       setFavorite([...favorite, newFavorite])
       toast.success("Favorilerim'e eklendi") 
-    }if (hasFavorite) {
+      if (hasFavorite) {
     setFavorite([...favorite])
-     toast.error("Film zaten eklendi")
-      
+    toast.error("Film zaten eklendi")
+  
     }
-     
-
+      
+    }   
   };
 
   const deleteToFavorite = id => {
@@ -78,15 +78,11 @@ export default function App() {
     toast.success("Film favorilerimden çıkarıldı")
   };
 
+  
   const deleteAllFavorite = () => setFavorite([])
 
 
-  const truncateOverview = (string, maxLength) => {
-    if (!string) return null;
-    if (string.length <= maxLength) return string;
-    return `${string.substring(0, maxLength)} ...`;
-  }
-
+ 
   return (
     <div className='container'>
       <Header searchMovie={searchMovie} favorite={favorite} />
@@ -95,7 +91,6 @@ export default function App() {
 
         <Route path='/'
           element={<MovieList
-            truncateOverview={truncateOverview}
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
             loading={loading} />} />
@@ -117,7 +112,6 @@ export default function App() {
         <Route path='/favorite'
           element={<LikeMovie
             deleteAllFavorite={deleteAllFavorite}
-            truncateOverview={truncateOverview}
             favorite={favorite}
 
             deleteToFavorite={deleteToFavorite}
