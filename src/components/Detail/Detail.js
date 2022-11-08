@@ -3,9 +3,17 @@ import React, { useEffect, useState } from 'react'
 import {   useParams } from 'react-router-dom';
 import Loading from '../Loading';
 import "./Detail.css"
-export default function Detail({loading}) {
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import {useSelector} from "react-redux"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 
+library.add(faHeart);
+
+export default function Detail({loading,addToFavorite,}) {
+
+  const {user} = useSelector(state => state.auth)
 
   const [movie, setMovie] = useState({})
 
@@ -36,6 +44,8 @@ export default function Detail({loading}) {
             <p>{movie.overview} </p>
             <h3>Tür</h3>
             <p>{movie.kind} </p>
+            {user ? <span onClick={() =>addToFavorite(movie.id)} className='heart-red'>
+  <FontAwesomeIcon icon="heart"/> </span> : null}
           
           </div>
 

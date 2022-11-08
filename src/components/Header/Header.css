@@ -1,22 +1,23 @@
- .link{
-    color: white;
-    text-decoration: none;
-    font-size: large;
-
-}
-.not-link{
-    color: white;
-    text-decoration: none;
-    font-size: large;
-
-}
-  .home{
+ .user-link{
     color: white;
     text-decoration: none;
     font-size: x-large;
 
 }
+
+.user-link:hover{
+ color: rgb(209, 152, 152);
+}
+
+#home{
+    font-size: x-large;
+}
+
 .home:hover{
+    color: white;
+}
+
+.user-name{
     color: white;
 }
 

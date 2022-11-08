@@ -58,6 +58,7 @@ export default function App() {
   }
 
     const addToFavorite = id => {
+
     const newFavorite = film.find(item => item.id === id)
     const hasFavorite = favorite.find(item => item.id === id) 
      if (newFavorite) {
@@ -66,7 +67,6 @@ export default function App() {
       if (hasFavorite) {
     setFavorite([...favorite])
     toast.error("Film zaten eklendi")
-  
     }
       
     }   
@@ -78,7 +78,7 @@ export default function App() {
     toast.success("Film favorilerimden çıkarıldı")
   };
 
-  
+
   const deleteAllFavorite = () => setFavorite([])
 
 
@@ -104,6 +104,7 @@ export default function App() {
         <Route path='/detail/:id'
           element={
             <Detail
+            addToFavorite={  addToFavorite}
               loading={loading}
               detailMovie={(id, movie) => {
                 detailMovie(id, movie)

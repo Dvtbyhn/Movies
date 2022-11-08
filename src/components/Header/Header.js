@@ -32,39 +32,58 @@ export default function Header({searchMovie,favorite}) {
     <>
     
  <Navbar style={{backgroundColor:"black"}} expand="lg">
-   <Container style={{ color:"white"}}>
- <Navbar.Brand style={{color:"white",fontSize:"x-large"}} >Best Movies</Navbar.Brand>
- <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor:"white"}} />
+   <Container>
+ <Navbar.Brand style={{color:"white",fontSize:"xxx-large"}}>Best Movies</Navbar.Brand>
+ <Navbar.Toggle aria-controls="basic-navbar-nav"
+  style={{backgroundColor:"white"}} />
  <Navbar.Collapse id="basic-navbar-nav" >
-   <Nav className="me-auto"   >
+
+   <Nav className="me-auto" >
+
    <ul style={{listStyle:"none",marginTop:"20px"}}>
-   <li><NavLink className="home"  to={"/"}>Ana sayfa</NavLink></li>
 
-   <li>{user ? "" : <NavLink className="link" to={"/signUp"}>Kayıt Ol</NavLink>}</li>
+   <li  > <NavLink className="user-link" id='home'
+  to={"/"}>Ana sayfa</NavLink></li>
 
-   <li> { user ? <h5 className='mt-2'> {user.displayName} </h5> :
-   <NavLink className="link" to={"/loginUp"}>Giriş Yap</NavLink>}</li>
+   <li >{user ? "" : 
+   <NavLink className="user-link" to={"/signUp"}>Kayıt Ol</NavLink>}
+   </li>
 
-   <li>
+   <li > { user ? 
+   <h5 className='user-name mt-2'>{user.displayName} </h5> :
+   <NavLink className="user-link" to={"/loginUp"}>Giriş Yap</NavLink>}
+   </li>
+
+   <li >
     {
     user.photoURL ? <img src={user.photoURL} alt={user.photoURL}
      style={{width:"40px",height:"40px",borderRadius:"10px"}}/> :null
      }
     </li>
 
-   <li>
-    {user ? <button onClick={handleLogout} className='link btn btn-dark'>Çıkış Yap</button> : null}
+    <li>
+    {user ? 
+    <NavLink to={"/favorite"}
+     className=' btn btn-danger'>
+    Favorilerim<span className='badge badge-light'>
+      {favorite.length < 1 ? null : favorite.length}</span></NavLink> : null}
     </li>
-      
-
-   <li>{user ? <NavLink to={"/update"} className='link btn btn-dark'>Profil</NavLink> : null}</li>
 
    <li>
-    {user ? <NavLink to={"/favorite"} className='link btn btn-danger'>
-    Favorilerim<span className='badge badge-light'>{  favorite.length < 1 ? null : favorite.length  }</span></NavLink> : null}
+    {user ? <NavLink to={"/update"} 
+   className=' btn btn-dark'>Profil</NavLink> : null}</li>
+
+   
+
+    <li >
+    {user ? <button onClick={handleLogout}
+     className=' btn btn-dark'>Çıkış Yap</button> : null}
     </li>
   </ul>
+
+
    </Nav>
+
 
    <Form className="d-flex">
    <Form.Control
@@ -77,7 +96,6 @@ export default function Header({searchMovie,favorite}) {
             
     </Form>
  </Navbar.Collapse>
- 
    </Container>
  </Navbar>
 
