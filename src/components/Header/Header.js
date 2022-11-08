@@ -61,7 +61,7 @@ export default function Header({searchMovie,favorite}) {
 
    <li>
     {user ? <NavLink to={"/favorite"} className='link btn btn-danger'>
-    Favorilerim<span className='badge badge-light'>{favorite.length}</span></NavLink> : null}
+    Favorilerim<span className='badge badge-light'>{  favorite.length < 1 ? null : favorite.length  }</span></NavLink> : null}
     </li>
   </ul>
    </Nav>

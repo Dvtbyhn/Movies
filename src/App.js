@@ -31,8 +31,8 @@ export default function App() {
   }, [])
 
   useEffect(() => localStorage.setItem("favorites", JSON.stringify(favorite)))
-  
-  
+
+
 
   const getMovies = async () => {
     setLoading(true)
@@ -54,16 +54,22 @@ export default function App() {
 
 
   const detailMovie = async (id) => {
-    setLoading(true)
     await axios.put(`http://localhost:3001/movies/${id}`)
-    setLoading(false)
-
   }
 
   const addToFavorite = id => {
-    const data = film.find(item => item.id === id)
-    setFavorite([...favorite,data])
-    toast.success("Film Favorilere Eklendi")
+    const newFavorite = film.find(item => item.id === id)
+    const hasFavorite = favorite.find(item => item.id === id)
+    if   (newFavorite) {
+      setFavorite([...favorite, newFavorite])
+      toast.success("Favorilerim'e eklendi") 
+    }if (hasFavorite) {
+    setFavorite([...favorite])
+     toast.error("Film zaten eklendi")
+      
+    }
+     
+
   };
 
   const deleteToFavorite = id => {
@@ -72,8 +78,8 @@ export default function App() {
     toast.success("Film favorilerimden çıkarıldı")
   };
 
-  const deleteAllFavorite = () =>  setFavorite([])
-    
+  const deleteAllFavorite = () => setFavorite([])
+
 
   const truncateOverview = (string, maxLength) => {
     if (!string) return null;
@@ -113,8 +119,8 @@ export default function App() {
             deleteAllFavorite={deleteAllFavorite}
             truncateOverview={truncateOverview}
             favorite={favorite}
-       
-                  deleteToFavorite={deleteToFavorite}
+
+            deleteToFavorite={deleteToFavorite}
             loading={loading} />} />
 
 
