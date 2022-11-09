@@ -1,19 +1,18 @@
 import React from 'react'
 import "./style.css"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { NavLink, Outlet } from 'react-router-dom';
 import Loading from '../Loading';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import {useSelector} from "react-redux"
 
-library.add(faHeart);
+
 
 export default function MovieList({
   filteredMovies,
   loading,
   addToFavorite,
-  heart
+  heart,
+  setHeart
+
 
 }) 
 {
@@ -45,7 +44,7 @@ backgroundColor:"black",color:"white"
 <div>PUAN: {movie.rating} </div>
 <div>TÜR: {movie.kind} </div>
 {user ? <span>
-<FontAwesomeIcon onClick={() =>addToFavorite(movie.id)} className={!heart ? "heart" : "heart-red"} size='xl' icon="heart"/> </span> : null}
+<button onClick={() => addToFavorite(movie.id)} className={"btn btn-warning"}>Favorilerime Ekle</button> </span> : null}
 <NavLink className='btn btn-success' to={`/detail/${movie.id}`}> Detay</NavLink>
 </div>
 </div>

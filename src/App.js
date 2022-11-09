@@ -10,6 +10,12 @@ import Header from "./components/Header/Header"
 import UpdateProfile from './components/UpdateProfile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
+
+library.add(faHeart);
 
 
 export default function App() {
@@ -55,25 +61,28 @@ export default function App() {
 
 
   const detailMovie = async (id) => {
+
     await axios.put(`http://localhost:3001/movies/${id}`)
+
   }
 
-    const addToFavorite = id => {
+
+    const addToFavorite = (id) => {
 
     const newFavorite = film.find(item => item.id === id)
     const hasFavorite = favorite.find(item => item.id === id) 
      if (newFavorite) {
-      setFavorite([...favorite, newFavorite])
-       toast.success("Favorilerim'e eklendi") 
-       setHeart(true)
+             setFavorite([ newFavorite,...favorite])
+          
      }
-    if (hasFavorite) {
+
+     if (hasFavorite) {
      setFavorite([...favorite])
-     toast.error("Film daha önce eklendi")
-    }
-    setHeart(false)
+      toast.error("Film daha önce eklendi")
+     }
+  
     }   
-  ;
+  
 
   const deleteToFavorite = id => {
     const del = favorite.filter(item => item.id !== id);
@@ -84,7 +93,7 @@ export default function App() {
 
   const deleteAllFavorite = () => setFavorite([])
 
- 
+
  
   return (
     <div className='container'>
@@ -95,9 +104,10 @@ export default function App() {
         <Route path='/'
           element={<MovieList
           heart={heart}
-            addToFavorite={addToFavorite}
-            filteredMovies={filteredMovies}
-            loading={loading} />} />
+          setHeart={setHeart}
+          addToFavorite={addToFavorite}
+          filteredMovies={filteredMovies}
+          loading={loading} />} />
 
         <Route path='/update' element={<UpdateProfile />} />
 
@@ -108,7 +118,7 @@ export default function App() {
         <Route path='/detail/:id'
           element={
             <Detail
-            setHeart={setHeart}
+           
             addToFavorite={  addToFavorite}
               loading={loading}
               detailMovie={(id, movie) => {
@@ -117,7 +127,7 @@ export default function App() {
 
         <Route path='/favorite'
           element={<LikeMovie
-          setHeart={setHeart}
+      
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}

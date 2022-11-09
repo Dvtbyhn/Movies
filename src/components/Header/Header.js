@@ -71,9 +71,8 @@ export default function Header({searchMovie,favorite}) {
 
    <li>
     {user ? <NavLink to={"/update"} 
-   className=' btn btn-dark'>Profil</NavLink> : null}</li>
-
-   
+   className=' btn btn-dark'>Profil</NavLink> : null}
+   </li>
 
     <li >
     {user ? <button onClick={handleLogout}
@@ -83,8 +82,6 @@ export default function Header({searchMovie,favorite}) {
 
 
    </Nav>
-
-
    <Form className="d-flex">
    <Form.Control
      type="search"
@@ -93,7 +90,6 @@ export default function Header({searchMovie,favorite}) {
      aria-label="Search"
      onChange={searchMovie}
     />
-            
     </Form>
  </Navbar.Collapse>
    </Container>

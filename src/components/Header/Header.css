@@ -25,12 +25,6 @@ ul  { display: flex}
 
 ul li {  margin-left: 10px;}
 
-.favorite-length {
- height: 40px;
- width: 40px;
- background-color: blueviolet;
- 
-}
 
 @media (max-width:996px) {
 ul  { 

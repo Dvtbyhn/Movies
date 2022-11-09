@@ -45,7 +45,7 @@ backgroundColor:"black",color:"white",
 <div>Puan: {movie.rating} </div>
 <div>Tür: {movie.kind} </div>
 <button 
-style={{ marginRight: "5px" }} 
+style={{marginRight:"5px"}} 
 className='btn btn-danger'
  onClick={() => deleteToFavorite(movie.id)}>Favorimden Çıkar</button>
 <NavLink className='btn btn-success' 
