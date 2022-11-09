@@ -9,11 +9,7 @@ import {useSelector} from "react-redux"
 export default function MovieList({
   filteredMovies,
   loading,
-  addToFavorite,
-  heart,
-  setHeart
-
-
+  addToFavorite
 }) 
 {
 
@@ -23,7 +19,7 @@ export default function MovieList({
   return (
 
     <>
- <div>
+ <div className='container'>
         
 <div className='row'>
 {loading ? <Loading /> : 

@@ -10,13 +10,18 @@ import Header from "./components/Header/Header"
 import UpdateProfile from './components/UpdateProfile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from 'react-redux';
 
-
-library.add(faHeart);
-
+const themes = {
+  dark: {
+    backgroundColor: "black",
+    color: "white",
+  },
+  light: {
+    backgroundColor: "white",
+    color: "black",
+  },
+};
 
 export default function App() {
 
@@ -25,7 +30,12 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-  const [heart , setHeart] = useState(false)
+  const [isDark, setIsDark] = useState(false);
+
+  const {user} = useSelector(state => state.auth)
+  const id = user.uid
+
+  console.log(favorite)
 
   useEffect(() => {
     getMovies()
@@ -36,9 +46,22 @@ export default function App() {
     setFavorite(JSON.parse(get))
   }, [])
 
-  useEffect(() => localStorage.setItem("favorites", JSON.stringify(favorite)))
-
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorite))
+  }
   
+  )
+
+  useEffect(() => {
+    const isDark = localStorage.getItem("isDark") === "true";
+    setIsDark(isDark);
+  }, []);
+
+  const toggleTheme = () => {
+    localStorage.setItem("isDark", JSON.stringify(!isDark));
+    setIsDark(!isDark);
+  };
+  const theme = isDark ? themes.dark : themes.light;
 
   const getMovies = async () => {
     setLoading(true)
@@ -61,9 +84,7 @@ export default function App() {
 
 
   const detailMovie = async (id) => {
-
     await axios.put(`http://localhost:3001/movies/${id}`)
-
   }
 
 
@@ -73,7 +94,6 @@ export default function App() {
     const hasFavorite = favorite.find(item => item.id === id) 
      if (newFavorite) {
              setFavorite([ newFavorite,...favorite])
-          
      }
 
      if (hasFavorite) {
@@ -96,15 +116,19 @@ export default function App() {
 
  
   return (
-    <div className='container'>
-      <Header searchMovie={searchMovie} favorite={favorite} />
+    <div  style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
+      <Header
+       searchMovie={searchMovie}
+        isDark={isDark}
+         favorite={favorite} 
+          userID={id}
+           theme={theme}
+            toggleTheme={toggleTheme} />
       <Toaster />
       <Routes>
 
         <Route path='/'
           element={<MovieList
-          heart={heart}
-          setHeart={setHeart}
           addToFavorite={addToFavorite}
           filteredMovies={filteredMovies}
           loading={loading} />} />
@@ -118,16 +142,15 @@ export default function App() {
         <Route path='/detail/:id'
           element={
             <Detail
-           
-            addToFavorite={  addToFavorite}
+              addToFavorite={  addToFavorite}
               loading={loading}
               detailMovie={(id, movie) => {
                 detailMovie(id, movie)
               }} />} />
 
-        <Route path='/favorite'
+        <Route path='/favorite/:userId'
           element={<LikeMovie
-      
+              userID={id}
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}

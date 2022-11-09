@@ -29,7 +29,7 @@ export default function Detail({ loading, addToFavorite, }) {
     <div>
       {loading ? <Loading />
         :
-        <div className='container-detail'>
+        <div className='container'>
 
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-3'>
@@ -54,8 +54,8 @@ export default function Detail({ loading, addToFavorite, }) {
               </div>
 
               <div style={{margin:"30px"}}>
-                {user ? <span onClick={() => addToFavorite(movie.id)} className='heart-red'>
-                  <FontAwesomeIcon icon="heart" /> </span> : null}
+                {user ? <button onClick={() => addToFavorite(movie.id)} className='btn btn-warning'>Favorilerime Ekle</button> : null}
+                        
               </div>
 
 

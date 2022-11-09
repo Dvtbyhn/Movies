@@ -49,7 +49,7 @@ await resetPassword(password)
 }
 
 return (
- <div style={{color:"white",textAlign:"center",marginTop:"4rem"}} >
+ <div style={{textAlign:"center",marginTop:"4rem"}} >
 <Toaster />
 <form onSubmit={handleSubmit}>
 <h1>Profil Güncelle</h1>

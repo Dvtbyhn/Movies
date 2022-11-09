@@ -35,6 +35,7 @@ export const register = async (email, password,photoURL) => {
 export const signIn = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
+    console.log(user.uid)
     return user
 
   } catch (error) {

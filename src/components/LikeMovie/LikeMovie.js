@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Loading from '../Loading';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 export default function LikeMovie({
 loading,
 favorite,
 deleteToFavorite,
 deleteAllFavorite,
-setHeart
+userID
 }) 
 {
 
+console.log(userID)
 
 return (
 <div>
-
+<div className='container'>
 <div className='row'>
     
 {favorite.length > 1 ? <div className='col-12 text-end'>
@@ -26,6 +28,7 @@ return (
 
 
 {loading ? <Loading /> :
+
 
  favorite.map((movie, i) => {
     
@@ -54,11 +57,14 @@ to={`/detail/${movie.id}`}> Detay</NavLink>
 </div>
 </div>
 </div>
+
+
 </>
 )
 })
 
 }
+</div>
 </div>
 </div>
 )

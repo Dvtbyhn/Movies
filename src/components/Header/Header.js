@@ -11,7 +11,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 
 
-export default function Header({searchMovie,favorite}) {
+export default function Header({
+  searchMovie,
+  favorite,
+  userID,
+  toggleTheme,
+  isDark,
+  theme
+}) {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -31,26 +38,26 @@ export default function Header({searchMovie,favorite}) {
   return (
     <>
     
- <Navbar style={{backgroundColor:"black"}} expand="lg">
+ <Navbar style={{color:theme.color}} expand="lg">
    <Container>
- <Navbar.Brand style={{color:"white",fontSize:"xxx-large"}}>Best Movies</Navbar.Brand>
- <Navbar.Toggle aria-controls="basic-navbar-nav"
-  style={{backgroundColor:"white"}} />
+ <Navbar.Brand style={{color:theme.color,fontSize:"xxx-large"}}>Best Movies</Navbar.Brand>
+ <Navbar.Toggle aria-controls="basic-navbar-nav"/>
  <Navbar.Collapse id="basic-navbar-nav" >
 
    <Nav className="me-auto" >
 
-   <ul style={{listStyle:"none",marginTop:"20px"}}>
+   <ul style={{listStyle:"none",marginTop:"20px",color:theme.color}}>
 
-   <li  > <NavLink className="user-link" id='home'
-  to={"/"}>Ana sayfa</NavLink></li>
+    <NavLink className="user-link"  id='home'
+  to={"/"}>Ana sayfa</NavLink>
+  
 
    <li >{user ? "" : 
    <NavLink className="user-link" to={"/signUp"}>Kayıt Ol</NavLink>}
    </li>
 
    <li > { user ? 
-   <h5 className='user-name mt-2'>{user.displayName} </h5> :
+   <h5 className='user-name mt-2'>{user.displayName|| user.email} </h5> :
    <NavLink className="user-link" to={"/loginUp"}>Giriş Yap</NavLink>}
    </li>
 
@@ -63,7 +70,7 @@ export default function Header({searchMovie,favorite}) {
 
     <li>
     {user ? 
-    <NavLink to={"/favorite"}
+    <NavLink to={`/favorite/${userID}`}
      className=' btn btn-danger'>
     Favorilerim<span className='badge badge-light'>
       {favorite.length < 1 ? null : favorite.length}</span></NavLink> : null}
@@ -91,7 +98,10 @@ export default function Header({searchMovie,favorite}) {
      onChange={searchMovie}
     />
     </Form>
+
+    <button onClick={toggleTheme} className='btn btn-dark'> {isDark ? "Dark" : "Light"}</button>
  </Navbar.Collapse>
+
    </Container>
  </Navbar>
 
