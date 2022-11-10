@@ -10,7 +10,7 @@ import Header from "./components/Header/Header"
 import UpdateProfile from './components/UpdateProfile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
-import { useSelector } from 'react-redux';
+
 
 export default function App() {
 
@@ -21,10 +21,7 @@ export default function App() {
   const [favorite, setFavorite] = useState([])
 
 
-  const { user } = useSelector(state => state.auth)
-  const id = user.uid
 
-  console.log(favorite)
 
   useEffect(() => {
     getMovies()
@@ -49,6 +46,8 @@ export default function App() {
 
   }
 
+
+
   const searchMovie = (e) => setSearch(e.target.value)
 
   let filteredMovies = film.filter(
@@ -60,10 +59,10 @@ export default function App() {
   });
 
 
-
   const detailMovie = async (id) => {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
+
 
 
   const addToFavorite = (id) => {
@@ -98,7 +97,6 @@ export default function App() {
       <Header
         searchMovie={searchMovie}
         favorite={favorite}
-        userID={id}
       />
       <Toaster />
       <Routes>
@@ -107,7 +105,9 @@ export default function App() {
           element={<MovieList
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
-            loading={loading} />} />
+            loading={loading} />} >
+           
+            </Route>
 
         <Route path='/update' element={<UpdateProfile />} />
 
@@ -126,7 +126,7 @@ export default function App() {
 
         <Route path='/favorite/:userId'
           element={<LikeMovie
-            userID={id}
+        
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}

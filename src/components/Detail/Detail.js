@@ -2,13 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux"
 
-
-
-library.add(faHeart);
 
 export default function Detail({ loading, addToFavorite, }) {
 

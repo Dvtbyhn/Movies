@@ -9,7 +9,8 @@ import { useSelector } from "react-redux"
 export default function MovieList({
   filteredMovies,
   loading,
-  addToFavorite
+  addToFavorite,
+
 }) {
 
 
@@ -17,15 +18,18 @@ export default function MovieList({
 
   return (
 
-    <>
+    <>  
+
       <div className='container'>
 
         <div className='row'>
+  
+        
           {loading ? <Loading /> :
 
             filteredMovies.map((movie, i) => {
               return (
-                <div key={i} className='col-md-6 col-lg-4 g-5'>
+                <div key={i} className='col-md-6 col-lg-3 p-3 '>
                   <div className="card text-center" style={{
                     boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
                     backgroundColor: "black", color: "white"
