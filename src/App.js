@@ -26,7 +26,7 @@ export default function App() {
   useEffect(() => {
     getMovies()
   }, [])
-
+ 
   useEffect(() => {
     const get = localStorage.getItem("favorites")
     setFavorite(JSON.parse(get))
@@ -37,6 +37,9 @@ export default function App() {
   }
 
   )
+
+
+
 
   const getMovies = async () => {
     setLoading(true)
@@ -71,6 +74,7 @@ export default function App() {
     const hasFavorite = favorite.find(item => item.id === id)
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
+      toast.success("Film Eklendi")
     }
 
     if (hasFavorite) {
@@ -87,9 +91,23 @@ export default function App() {
     toast.success("Film favorilerimden çıkarıldı")
   };
 
+  const filterCategory = (kind) => {
+    let kindFilter = film.filter((item) => {
+      return item.kind === kind
+    })
+    setFilm(kindFilter)
 
-  const deleteAllFavorite = () => setFavorite([])
+  }
 
+
+  const movieItem = [...new Set(film.map((val) => val.kind))];
+
+  const deleteAllFavorite = () => {
+    const accept = window.confirm("Emin misiniz?")
+    if (accept) {
+      setFavorite([])
+    }
+  }
 
 
   return (
@@ -103,11 +121,16 @@ export default function App() {
 
         <Route path='/'
           element={<MovieList
+          favorite={favorite}
+            film={film}
+            setFilm={setFilm}
+            movieItem={movieItem}
+            filterCategory={filterCategory}
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
             loading={loading} />} >
-           
-            </Route>
+
+        </Route>
 
         <Route path='/update' element={<UpdateProfile />} />
 
@@ -126,7 +149,7 @@ export default function App() {
 
         <Route path='/favorite/:userId'
           element={<LikeMovie
-        
+
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}
