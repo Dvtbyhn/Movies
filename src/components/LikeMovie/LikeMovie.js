@@ -1,71 +1,64 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Loading from '../Loading';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 
 export default function LikeMovie({
-loading,
-favorite,
-deleteToFavorite,
-deleteAllFavorite,
-userID
-}) 
-{
+    loading,
+    favorite,
+    deleteToFavorite,
+    deleteAllFavorite,
+    userID,
 
-console.log(userID)
+}) {
 
-return (
-<div>
-<div className='container'>
-<div className='row'>
-    
-{favorite.length > 1 ? <div className='col-12 text-end'>
+    console.log(userID)
 
-<button onClick={deleteAllFavorite}
- className='btn btn-danger'>Hepsini Sil</button>
-</div> : null}
+    return (
+        <div>
+            <div className='container' >
+                <div className='row'>
 
+                    {favorite.length > 1 ? <div className='col-12 text-end'>
 
-
-{loading ? <Loading /> :
+                        <button onClick={deleteAllFavorite}
+                            className='btn btn-danger'>Hepsini Sil</button>
+                    </div> : null}
 
 
- favorite.map((movie, i) => {
-    
-return (
-<>
 
-<div  className='col-xs-12 col-sm-12 col-md-6 col-lg-4 g-5'>
-<div key={i} className="card text-center" style={{
-boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
-backgroundColor:"black",color:"white", 
-}}>
+                    {loading ? <Loading /> :
+                        favorite.map((movie, i) => {
 
-<img src={movie.imageURL} className="card-img-top" alt=''   />
-<div className="card-body">
-<h5 className="card-title">{movie.name}</h5>
+                            return (
+                                <>
+                                    <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 g-5'>
+                                        <div key={i} className="card text-center" style={{
+                                            boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
+                                            backgroundColor: "black", color: "white",
+                                        }}>
 
-<div>Puan: {movie.rating} </div>
-<div>Tür: {movie.kind} </div>
-<button 
-style={{marginRight:"5px"}} 
-className='btn btn-danger'
- onClick={() => deleteToFavorite(movie.id)}>Favorimden Çıkar</button>
-<NavLink className='btn btn-success' 
-to={`/detail/${movie.id}`}> Detay</NavLink>
+                                            <img src={movie.imageURL} className="card-img-top" alt='' />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{movie.name}</h5>
 
-</div>
-</div>
-</div>
+                                                <div>Puan: {movie.rating} </div>
+                                                <div>Tür: {movie.kind} </div>
+                                                <button
+                                                    style={{ marginRight: "5px" }}
+                                                    className='btn btn-danger'
+                                                    onClick={() => deleteToFavorite(movie.id)}>Favorimden Çıkar</button>
+                                                <NavLink className='btn btn-success'
+                                                    to={`/detail/${movie.id}`}> Detay</NavLink>
 
-
-</>
-)
-})
-
-}
-</div>
-</div>
-</div>
-)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    )
 }

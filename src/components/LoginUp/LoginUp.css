@@ -1,24 +1,25 @@
-
-body{
-   
-    width: 100%;
-    height: 100%;
+body {
+  width: 100%;
+  height: 100%;
 }
 
-.container-login{
-    text-align: center;
-    
+.container-login {
+  text-align: center;
 }
 
-.card-login{display: inline-block;}
+.card-login {
+  display: inline-block;
+}
 
-.gif{width: 100%;}
+.gif {
+  width: 100%;
+}
 
 input {
-    width: 20rem;
-    height: 2.5rem;
-      border-radius: 10px;
-      border: none;
-     outline: none;
-     text-align: center;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-align: center;
 }

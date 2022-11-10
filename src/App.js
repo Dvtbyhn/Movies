@@ -12,17 +12,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
 import { useSelector } from 'react-redux';
 
-const themes = {
-  dark: {
-    backgroundColor: "black",
-    color: "white",
-  },
-  light: {
-    backgroundColor: "white",
-    color: "black",
-  },
-};
-
 export default function App() {
 
 
@@ -30,9 +19,9 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-  const [isDark, setIsDark] = useState(false);
 
-  const {user} = useSelector(state => state.auth)
+
+  const { user } = useSelector(state => state.auth)
   const id = user.uid
 
   console.log(favorite)
@@ -49,19 +38,8 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorite))
   }
-  
+
   )
-
-  useEffect(() => {
-    const isDark = localStorage.getItem("isDark") === "true";
-    setIsDark(isDark);
-  }, []);
-
-  const toggleTheme = () => {
-    localStorage.setItem("isDark", JSON.stringify(!isDark));
-    setIsDark(!isDark);
-  };
-  const theme = isDark ? themes.dark : themes.light;
 
   const getMovies = async () => {
     setLoading(true)
@@ -88,21 +66,21 @@ export default function App() {
   }
 
 
-    const addToFavorite = (id) => {
+  const addToFavorite = (id) => {
 
     const newFavorite = film.find(item => item.id === id)
-    const hasFavorite = favorite.find(item => item.id === id) 
-     if (newFavorite) {
-             setFavorite([ newFavorite,...favorite])
-     }
+    const hasFavorite = favorite.find(item => item.id === id)
+    if (newFavorite) {
+      setFavorite([newFavorite, ...favorite])
+    }
 
-     if (hasFavorite) {
-     setFavorite([...favorite])
+    if (hasFavorite) {
+      setFavorite([...favorite])
       toast.error("Film daha önce eklendi")
-     }
-  
-    }   
-  
+    }
+
+  }
+
 
   const deleteToFavorite = id => {
     const del = favorite.filter(item => item.id !== id);
@@ -114,24 +92,22 @@ export default function App() {
   const deleteAllFavorite = () => setFavorite([])
 
 
- 
+
   return (
-    <div  style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
+    <div >
       <Header
-       searchMovie={searchMovie}
-        isDark={isDark}
-         favorite={favorite} 
-          userID={id}
-           theme={theme}
-            toggleTheme={toggleTheme} />
+        searchMovie={searchMovie}
+        favorite={favorite}
+        userID={id}
+      />
       <Toaster />
       <Routes>
 
         <Route path='/'
           element={<MovieList
-          addToFavorite={addToFavorite}
-          filteredMovies={filteredMovies}
-          loading={loading} />} />
+            addToFavorite={addToFavorite}
+            filteredMovies={filteredMovies}
+            loading={loading} />} />
 
         <Route path='/update' element={<UpdateProfile />} />
 
@@ -142,7 +118,7 @@ export default function App() {
         <Route path='/detail/:id'
           element={
             <Detail
-              addToFavorite={  addToFavorite}
+              addToFavorite={addToFavorite}
               loading={loading}
               detailMovie={(id, movie) => {
                 detailMovie(id, movie)
@@ -150,7 +126,7 @@ export default function App() {
 
         <Route path='/favorite/:userId'
           element={<LikeMovie
-              userID={id}
+            userID={id}
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}

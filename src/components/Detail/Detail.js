@@ -2,11 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading';
-import "./Detail.css"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 
 
 library.add(faHeart);
@@ -29,7 +28,7 @@ export default function Detail({ loading, addToFavorite, }) {
     <div>
       {loading ? <Loading />
         :
-        <div className='container'>
+        <div className='container' style={{color:"white"}}>
 
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-3'>
@@ -53,18 +52,12 @@ export default function Detail({ loading, addToFavorite, }) {
 
               </div>
 
-              <div style={{margin:"30px"}}>
+              <div style={{ margin: "30px" }}>
                 {user ? <button onClick={() => addToFavorite(movie.id)} className='btn btn-warning'>Favorilerime Ekle</button> : null}
-                        
+
               </div>
-
-
             </div>
-
           </div>
-
-
-
         </div>
       }
     </div>
