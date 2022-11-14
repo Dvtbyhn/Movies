@@ -27,7 +27,7 @@ export default function Detail({ loading, addToFavorite, }) {
 
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-3'>
-              <div className="card"   >
+              <div className="card mt-5" >
                 <img src={movie.imageURL} className="card-img-top" alt={movie.name} />
               </div>
             </div>

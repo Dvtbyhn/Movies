@@ -38,7 +38,7 @@ export default function Header({
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand style={{ color: "white", fontSize: "xxx-large" }}>Best Movies</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor:"white"}} />
           <Navbar.Collapse id="basic-navbar-nav" >
 
             <Nav className="me-auto" >

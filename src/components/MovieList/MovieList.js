@@ -3,24 +3,21 @@ import "./style.css"
 import { NavLink, Outlet } from 'react-router-dom';
 import Loading from '../Loading';
 import { useSelector } from "react-redux"
-
 import Filter from '../Filter/Filter';
 
 export default function MovieList({
 filteredMovies,
 loading,
 addToFavorite,
-filterCategory,
-movieItem,
 setFilm,
-film
-
-}) {
+film,
+filterItem,
+movieItem
+}) 
+{
 
 
 const { user } = useSelector(state => state.auth)
-
-
 
 
 return (
@@ -28,14 +25,15 @@ return (
 <>
 
 <div className='container'>
-
 <div className='row'>
 
 <Filter
+filterItem={filterItem}
+movieItem={movieItem}
 film={film}
- setFilm={setFilm}
-filterCategory={filterCategory} 
-movieItem={movieItem}/>
+setFilm={setFilm}
+
+/>
 
 {loading ? <Loading /> :
 
@@ -48,7 +46,10 @@ boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
 backgroundColor: "black", color: "white"
 }}>
 
-<img src={movie.imageURL} className="card-img-top" alt={movie.name} />
+<NavLink to={`/detail/${movie.id}`}>
+<img src={movie.imageURL} 
+className="card-img-top" alt={movie.name} />
+</NavLink>
 
 <div className="card-body">
 

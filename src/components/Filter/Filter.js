@@ -1,25 +1,31 @@
 import React from 'react'
 
-export default function Filter({filterCategory,movieItem,setFilm,film}) {
+export default function Filter({ filterItem, movieItem }) {
 
-   
- 
+
 
   return (
-    <div>
-       <h2 style={{color:"white"}}>Kategoriler</h2>
-             {movieItem.map((kind,id) => {
-                return (
-                    <button style={{marginLeft:"12px"}} 
-                     className='btn btn-dark mt-2' key={id} 
-                    onClick={() => filterCategory(kind)}>
-                       {kind}
-                    </button>
-                )
-             })}
-             <button style={{marginLeft:"12px"}} className='btn btn-dark mt-2' 
-             onClick={() => { return setFilm(film)} }>Hepsi</button>
-      
+    <div className='text-center'>
+
+    <h2 style={{ color: "white" }}>Kategoriler</h2>
+
+    <select style={{
+      width:"40%",
+    backgroundColor:"black",
+    color:"white",
+    height:"2.5rem",
+    textAlign:"center"}}
+
+      onChange={(e) => filterItem(e.target.value)}>
+
+        {movieItem.map((kind, id) => {
+          return (
+             <option style={{fontSize:"20px",backgroundColor:"black",color:"white"}} 
+              key={id}> {kind} </option>
+          )
+        })}
+
+      </select>
 
     </div>
   )

@@ -12,6 +12,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
 
 
+
+
 export default function App() {
 
 
@@ -19,14 +21,13 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-
-
+  const [category, setCategory] = useState(film)
 
 
   useEffect(() => {
     getMovies()
   }, [])
- 
+
   useEffect(() => {
     const get = localStorage.getItem("favorites")
     setFavorite(JSON.parse(get))
@@ -34,11 +35,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorite))
-  }
-
-  )
-
-
+  })
 
 
   const getMovies = async () => {
@@ -48,6 +45,25 @@ export default function App() {
     setLoading(false)
 
   }
+
+
+  const movieItem = ['Hepsi', ...new Set(film.map(mov =>{return mov.kind} ))]
+
+  const filterItem = filmItem => {
+
+    if (filmItem === 'Hepsi') {
+      return setFilm(film);
+    } else {
+
+      const kindFilter = film.filter(item =>
+        item.kind === filmItem
+      )
+      setFilm(kindFilter)
+    }
+    return film
+
+
+  };
 
 
 
@@ -91,16 +107,10 @@ export default function App() {
     toast.success("Film favorilerimden çıkarıldı")
   };
 
-  const filterCategory = (kind) => {
-    let kindFilter = film.filter((item) => {
-      return item.kind === kind
-    })
-    setFilm(kindFilter)
-
-  }
 
 
-  const movieItem = [...new Set(film.map((val) => val.kind))];
+
+
 
   const deleteAllFavorite = () => {
     const accept = window.confirm("Emin misiniz?")
@@ -117,15 +127,16 @@ export default function App() {
         favorite={favorite}
       />
       <Toaster />
+
       <Routes>
 
         <Route path='/'
           element={<MovieList
-          favorite={favorite}
+            movieItem={movieItem}
+            filterItem={filterItem}
+            favorite={favorite}
             film={film}
             setFilm={setFilm}
-            movieItem={movieItem}
-            filterCategory={filterCategory}
             addToFavorite={addToFavorite}
             filteredMovies={filteredMovies}
             loading={loading} />} >
@@ -149,17 +160,12 @@ export default function App() {
 
         <Route path='/favorite/:userId'
           element={<LikeMovie
-
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}
             loading={loading} />} />
-
-
         <Route path='*' element={<Page404 />} />
       </Routes>
-
-
     </div>
   )
 }
