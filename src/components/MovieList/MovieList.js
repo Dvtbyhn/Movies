@@ -1,13 +1,11 @@
 import React from 'react'
 import "./style.css"
 import { NavLink, Outlet } from 'react-router-dom';
-import Loading from '../Loading';
 import { useSelector } from "react-redux"
 import Filter from '../Filter/Filter';
 
 export default function MovieList({
     search,
-    loading,
     addToFavorite,
     setFilm,
     film,
@@ -23,20 +21,15 @@ export default function MovieList({
     return (
 
         <>
-
             <div className='container'>
                 <div className='row'>
-
                     <Filter
                         handleCategoryChange={handleCategoryChange}
                         movieItem={movieItem}
                         film={film}
                         setFilm={setFilm}
-
                     />
-
-                    {loading ? <Loading /> :
-
+                    { 
                         filteredList.filter((movie) =>
                             movie.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
                         ).sort((a, b) => {
@@ -56,24 +49,18 @@ export default function MovieList({
                                         </NavLink>
 
                                         <div className="card-body">
-
                                             <h5 className="card-title"> {movie.name} </h5>
-
                                             <p className="card-text"></p>
-
                                             <div className='card-footer'>
                                                 <div>PUAN: {movie.rating} </div>
                                                 <div>TÜR: {movie.kind} </div>
-                                                {user ? <span>
+                                                {user ?  <span>
                                                     <button onClick={() => addToFavorite(movie.id)}
-                                                        className={"btn btn-warning"}>Favorilerime Ekle</button> </span> : null}
+                                                        className="btn btn-warning" >Favorilerime Ekle</button> </span> : null}
                                                 <NavLink className='btn btn-success' to={`/detail/${movie.id}`}> Detay</NavLink>
                                             </div>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                             )
                         })}

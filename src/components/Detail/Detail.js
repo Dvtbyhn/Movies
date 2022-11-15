@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import Loading from '../Loading';
+
 import { useSelector } from "react-redux"
 
 
-export default function Detail({ loading, addToFavorite, }) {
+export default function Detail({ addToFavorite, }) {
 
   const { user } = useSelector(state => state.auth)
 
@@ -21,8 +21,7 @@ export default function Detail({ loading, addToFavorite, }) {
 
   return (
     <div>
-      {loading ? <Loading />
-        :
+      {
         <div className='container' style={{color:"white"}}>
 
           <div className='row'>

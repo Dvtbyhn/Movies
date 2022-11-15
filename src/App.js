@@ -10,6 +10,8 @@ import Header from "./components/Header/Header"
 import UpdateProfile from './components/UpdateProfile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
+import Loading from './components/Loading';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -22,6 +24,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
   const [selectedCategory, setSelectedCategory] = useState();
+  
 
 
   useEffect(() => {
@@ -59,9 +62,7 @@ export default function App() {
       return film;
     } 
     
-    return film.filter((item) => item.kind === selectedCategory);
-
- 
+    return film.filter((item) => item.kind === selectedCategory)
   }
 
   
@@ -86,12 +87,14 @@ export default function App() {
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
+     
     }
 
     if (hasFavorite) {
       setFavorite([...favorite])
-      toast.error("Film daha önce eklendi")
+      toast.error("Film daha önce eklendi") 
     }
+
 
   }
 
@@ -111,6 +114,7 @@ export default function App() {
   }
 
 
+
   return (
     <div >
       <Header
@@ -118,6 +122,7 @@ export default function App() {
         favorite={favorite}
       />
       <Toaster />
+{ loading ? <Loading />:
 
       <Routes>
 
@@ -128,10 +133,11 @@ export default function App() {
             handleCategoryChange={handleCategoryChange}
             favorite={favorite}
             film={film}
+            deleteToFavorite={deleteToFavorite}
             setFilm={setFilm}
             filteredList={filteredList}
             addToFavorite={addToFavorite}
-            loading={loading} />} >
+             />} >
 
         </Route>
 
@@ -145,7 +151,6 @@ export default function App() {
           element={
             <Detail
               addToFavorite={addToFavorite}
-              loading={loading}
               detailMovie={(id, movie) => {
                 detailMovie(id, movie)
               }} />} />
@@ -155,9 +160,12 @@ export default function App() {
             deleteAllFavorite={deleteAllFavorite}
             favorite={favorite}
             deleteToFavorite={deleteToFavorite}
-            loading={loading} />} />
+            />
+            } />
         <Route path='*' element={<Page404 />} />
       </Routes>
-    </div>
-  )
+      
+  }
+   <Footer />
+  </div>)
 }
