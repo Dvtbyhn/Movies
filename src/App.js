@@ -24,6 +24,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
   const [selectedCategory, setSelectedCategory] = useState();
+  const [clickButton,setClickButton] = useState(false)
 
 
 
@@ -80,22 +81,21 @@ export default function App() {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
 
-  const addToFavorite = (id) => {
+  const addToFavorite = (id,) => {
 
     const newFavorite = film.find(item => item.id === id)
     const hasFavorite = favorite.find(item => item.id === id)
+
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
-
+      
     }
 
     if (hasFavorite) {
       setFavorite([...favorite])
       toast.error("Film daha önce eklendi")
     }
-
-
   }
 
 
@@ -107,15 +107,8 @@ export default function App() {
 
 
   const deleteAllFavorite = () => {
-    const accept = window.confirm("Emin misiniz?")
-    if (accept) {
-      setFavorite([])
-    }
+    setFavorite([])
   }
-
-   
-
-
 
   return (
     <div >

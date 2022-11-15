@@ -11,7 +11,9 @@ export default function MovieList({
     film,
     handleCategoryChange,
     movieItem,
-    filteredList
+    filteredList,
+    favorite,
+    deleteToFavorite
 }) {
 
 
@@ -54,10 +56,13 @@ export default function MovieList({
                                             <div className='card-footer'>
                                                 <div>PUAN: {movie.rating} </div>
                                                 <div>TÜR: {movie.kind} </div>
-                                                {user ?  <span>
-                                                    <button onClick={() => addToFavorite(movie.id)}
-                                                        className="btn btn-warning" >Favorilerime Ekle</button> </span> : null}
-                                                <NavLink className='btn btn-success' to={`/detail/${movie.id}`}> Detay</NavLink>
+                                                {user ?  <span> { favorite.includes(movie,localStorage.getItem("favorites")) ? 
+                                                    <button onClick={() => deleteToFavorite(movie.id)}
+                                                        className="btn btn-danger mt-2 mb-2">Favorilerimden Çıkar</button>
+                                                        :<button className='btn btn-warning mt-2 mb-2' onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
+                                                    }
+                                                     </span> : null}<br/>
+                                                <NavLink className='btn btn-success ' to={`/detail/${movie.id}`}> Detay</NavLink>
                                             </div>
                                         </div>
                                     </div>

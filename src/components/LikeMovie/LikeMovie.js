@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import Modals from '../Modal/Modal';
 
 export default function LikeMovie({
   
@@ -19,8 +20,7 @@ export default function LikeMovie({
 
                     {favorite.length > 1 ? <div className='col-12 text-end'>
 
-                        <button onClick={deleteAllFavorite}
-                            className='btn btn-danger'>Hepsini Sil</button>
+                        <Modals    deleteAllFavorite={deleteAllFavorite}/>
                     </div> : null}
 
                     {
