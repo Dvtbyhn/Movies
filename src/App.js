@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useMemo } from 'react'
 import MovieList from './components/MovieList/MovieList'
 import axios from "axios"
 import { Routes, Route } from 'react-router-dom';
@@ -21,7 +21,7 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-  const [category, setCategory] = useState(film)
+  const [selectedCategory, setSelectedCategory] = useState();
 
 
   useEffect(() => {
@@ -49,40 +49,35 @@ export default function App() {
 
   const movieItem = ['Hepsi', ...new Set(film.map(mov =>{return mov.kind} ))]
 
-  const filterItem = filmItem => {
+  function getFilteredList() {
 
-    if (filmItem === 'Hepsi') {
-      return setFilm(film);
-    } else {
-
-      const kindFilter = film.filter(item =>
-        item.kind === filmItem
-      )
-      setFilm(kindFilter)
+    if(selectedCategory === "Hepsi"){
+      return film
     }
-    return film
+  
+    if (!selectedCategory) {
+      return film;
+    } 
+    
+    return film.filter((item) => item.kind === selectedCategory);
 
+ 
+  }
 
-  };
+  
+  var filteredList = useMemo(getFilteredList, [selectedCategory, film]);
 
+  function handleCategoryChange(event) {
+    setSelectedCategory(event.target.value);
 
+  }
 
   const searchMovie = (e) => setSearch(e.target.value)
-
-  let filteredMovies = film.filter(
-    (movie) => {
-      return movie.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
-    }
-  ).sort((a, b) => {
-    return b.name < a.name ? 1 : -1
-  });
 
 
   const detailMovie = async (id) => {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
-
-
 
   const addToFavorite = (id) => {
 
@@ -108,10 +103,6 @@ export default function App() {
   };
 
 
-
-
-
-
   const deleteAllFavorite = () => {
     const accept = window.confirm("Emin misiniz?")
     if (accept) {
@@ -132,13 +123,14 @@ export default function App() {
 
         <Route path='/'
           element={<MovieList
+          search={search}
             movieItem={movieItem}
-            filterItem={filterItem}
+            handleCategoryChange={handleCategoryChange}
             favorite={favorite}
             film={film}
             setFilm={setFilm}
+            filteredList={filteredList}
             addToFavorite={addToFavorite}
-            filteredMovies={filteredMovies}
             loading={loading} />} >
 
         </Route>
