@@ -85,11 +85,11 @@ export default function Header({
               </ul>
 
             </Nav>
-            <Form className="d-flex">
+            <Form >
               <Form.Control
                 type="search"
                 placeholder="Search"
-                className="me-2"
+              
                 aria-label="Search"
                 onChange={searchMovie}
               />

@@ -89,7 +89,6 @@ export default function App() {
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
-      
     }
 
     if (hasFavorite) {

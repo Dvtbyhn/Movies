@@ -8,22 +8,7 @@
       "id": 11,
       "kind": "Korku/Gerilim"
     },
-    {
-      "name": "Blitz 007",
-      "rating": "6.7",
-      "overview": "A tough, renegade cop with a gay sidekick is dispatched to take down a serial killer who has been targeting police officers. AÇIKLAMA AÇIKLAMA",
-      "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qCPMjT8Ld8tvs1zs7LY2jpKlRIK.jpg",
-      "id": 12,
-      "kind": "Aksiyon"
-    },
-    {
-      "name": "Hostage",
-      "rating": "6.3",
-      "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4hne3v6jN4MlCnhSkxOW7YspJhr.jpg",
-      "overview": "When a mafia accountant is taken hostage on his beat, a police officer – wracked by guilt from a prior stint as a negotiator – must negotiate the standoff, even as his own family is held captive by the mob.",
-      "id": 13,
-      "kind": "Aksiyon"
-    },
+ 
     {
       "name": "The Godfather",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vseIVRdN4xasYwStQIi6SI7DcEu.jpg",
