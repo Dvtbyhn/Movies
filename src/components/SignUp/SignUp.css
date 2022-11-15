@@ -1,11 +1,13 @@
 .container-sign {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: center;
-
-  box-shadow: 2px 2px 22px 2px white;
+ display: flex;
+ justify-content: center;
+ 
 }
 
 .card-sign {
-  margin: 20px;
+  width: 50rem;
+  margin-top: 5rem;
+   padding: 2rem;
+  color: white;
+  box-shadow: 2px 2px 22px 2px white;
 }
