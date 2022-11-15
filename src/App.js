@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useMemo } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import MovieList from './components/MovieList/MovieList'
 import axios from "axios"
 import { Routes, Route } from 'react-router-dom';
@@ -24,7 +24,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
   const [selectedCategory, setSelectedCategory] = useState();
-  
+
 
 
   useEffect(() => {
@@ -50,22 +50,22 @@ export default function App() {
   }
 
 
-  const movieItem = ['Hepsi', ...new Set(film.map(mov =>{return mov.kind} ))]
+  const movieItem = ['Hepsi', ...new Set(film.map(mov => { return mov.kind }))]
 
   function getFilteredList() {
 
-    if(selectedCategory === "Hepsi"){
+    if (selectedCategory === "Hepsi") {
       return film
     }
-  
+
     if (!selectedCategory) {
       return film;
-    } 
-    
+    }
+
     return film.filter((item) => item.kind === selectedCategory)
   }
 
-  
+
   var filteredList = useMemo(getFilteredList, [selectedCategory, film]);
 
   function handleCategoryChange(event) {
@@ -87,12 +87,12 @@ export default function App() {
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
-     
+
     }
 
     if (hasFavorite) {
       setFavorite([...favorite])
-      toast.error("Film daha önce eklendi") 
+      toast.error("Film daha önce eklendi")
     }
 
 
@@ -113,6 +113,8 @@ export default function App() {
     }
   }
 
+   
+
 
 
   return (
@@ -122,50 +124,50 @@ export default function App() {
         favorite={favorite}
       />
       <Toaster />
-{ loading ? <Loading />:
+      {loading ? <Loading /> :
 
-      <Routes>
+        <Routes>
 
-        <Route path='/'
-          element={<MovieList
-          search={search}
-            movieItem={movieItem}
-            handleCategoryChange={handleCategoryChange}
-            favorite={favorite}
-            film={film}
-            deleteToFavorite={deleteToFavorite}
-            setFilm={setFilm}
-            filteredList={filteredList}
-            addToFavorite={addToFavorite}
-             />} >
-
-        </Route>
-
-        <Route path='/update' element={<UpdateProfile />} />
-
-        <Route path='/signUp' element={<SignUp />} />
-
-        <Route path='/loginUp' element={<LoginUp />} />
-
-        <Route path='/detail/:id'
-          element={
-            <Detail
+          <Route path='/'
+            element={<MovieList
+              search={search}
+              movieItem={movieItem}
+              handleCategoryChange={handleCategoryChange}
+              favorite={favorite}
+              film={film}
+              deleteToFavorite={deleteToFavorite}
+              setFilm={setFilm}
+              filteredList={filteredList}
               addToFavorite={addToFavorite}
-              detailMovie={(id, movie) => {
-                detailMovie(id, movie)
-              }} />} />
+            />} >
 
-        <Route path='/favorite/:userId'
-          element={<LikeMovie
-            deleteAllFavorite={deleteAllFavorite}
-            favorite={favorite}
-            deleteToFavorite={deleteToFavorite}
+          </Route>
+
+          <Route path='/update' element={<UpdateProfile />} />
+
+          <Route path='/signUp' element={<SignUp />} />
+
+          <Route path='/loginUp' element={<LoginUp />} />
+
+          <Route path='/detail/:id'
+            element={
+              <Detail
+                addToFavorite={addToFavorite}
+                detailMovie={(id, movie) => {
+                  detailMovie(id, movie)
+                }} />} />
+
+          <Route path='/favorite/:userId'
+            element={<LikeMovie
+              deleteAllFavorite={deleteAllFavorite}
+              favorite={favorite}
+              deleteToFavorite={deleteToFavorite}
             />
             } />
-        <Route path='*' element={<Page404 />} />
-      </Routes>
-      
-  }
-   <Footer />
-  </div>)
+          <Route path='*' element={<Page404 />} />
+        </Routes>
+
+      }
+      <Footer />
+    </div>)
 }
