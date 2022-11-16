@@ -11,7 +11,6 @@ import UpdateProfile from './components/UpdateProfile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
 import Loading from './components/Loading';
-import Footer from './components/Footer/Footer';
 
 
 
@@ -59,10 +58,6 @@ export default function App() {
       return film
     }
 
-    if (!selectedCategory) {
-      return film;
-    }
-
     return film.filter((item) => item.kind === selectedCategory)
   }
 
@@ -89,6 +84,7 @@ export default function App() {
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
+      setClickButton(true)
     }
 
     if (hasFavorite) {
@@ -122,6 +118,7 @@ export default function App() {
 
           <Route path='/'
             element={<MovieList
+            clickButton={clickButton}
               search={search}
               movieItem={movieItem}
               handleCategoryChange={handleCategoryChange}
@@ -160,6 +157,6 @@ export default function App() {
         </Routes>
 
       }
-      <Footer />
+      
     </div>)
 }
