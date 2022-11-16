@@ -20,7 +20,7 @@ export default function Filter({ handleCategoryChange, movieItem }) {
 
         {movieItem.map((kind, id) => {
           return (
-             <option value={kind}
+             <option value={kind} 
               style={{fontSize:"20px",backgroundColor:"black",color:"white"}} 
               key={id}> {kind} </option>
           )

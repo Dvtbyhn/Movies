@@ -22,8 +22,9 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
+  
   const [selectedCategory, setSelectedCategory] = useState();
-  const [clickButton,setClickButton] = useState(false)
+
 
 
 
@@ -34,11 +35,14 @@ export default function App() {
   useEffect(() => {
     const get = localStorage.getItem("favorites")
     setFavorite(JSON.parse(get))
+
   }, [])
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorite))
   })
+
+
 
 
   const getMovies = async () => {
@@ -50,7 +54,9 @@ export default function App() {
   }
 
 
-  const movieItem = ['Hepsi', ...new Set(film.map(mov => { return mov.kind }))]
+
+
+  const movieItem = ['Hepsi', ...new Set(film.map(mov =>  mov.kind))]
 
   function getFilteredList() {
 
@@ -58,15 +64,19 @@ export default function App() {
       return film
     }
 
+    if (!selectedCategory) {
+      return film;
+    }
+
     return film.filter((item) => item.kind === selectedCategory)
+    
   }
 
 
   var filteredList = useMemo(getFilteredList, [selectedCategory, film]);
 
-  function handleCategoryChange(event) {
-    setSelectedCategory(event.target.value);
-
+  function handleCategoryChange(e) {
+    setSelectedCategory(e.target.value);
   }
 
   const searchMovie = (e) => setSearch(e.target.value)
@@ -76,15 +86,16 @@ export default function App() {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
 
-  const addToFavorite = (id,) => {
+  const addToFavorite = (id) => {
 
     const newFavorite = film.find(item => item.id === id)
+
     const hasFavorite = favorite.find(item => item.id === id)
 
     if (newFavorite) {
       setFavorite([newFavorite, ...favorite])
       toast.success("Film Eklendi")
-      setClickButton(true)
+   
     }
 
     if (hasFavorite) {
@@ -118,7 +129,6 @@ export default function App() {
 
           <Route path='/'
             element={<MovieList
-            clickButton={clickButton}
               search={search}
               movieItem={movieItem}
               handleCategoryChange={handleCategoryChange}

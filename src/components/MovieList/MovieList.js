@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./style.css"
 import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from "react-redux"
@@ -14,12 +14,16 @@ export default function MovieList({
     handleCategoryChange,
     movieItem,
     filteredList,
-    favorite,
     deleteToFavorite,
-    getFavorite
+    favorite
+   
 }) {
-
+   
     const { user } = useSelector(state => state.auth)
+
+
+  
+
     return (
 
         <>
@@ -57,16 +61,16 @@ export default function MovieList({
    <div>PUAN: {movie.rating} </div>
    <div>TÜR: {movie.kind} </div>
 
-   {user ?  <span> { favorite.includes(movie) ? 
-       <button onClick={() => deleteToFavorite(movie.id)} 
+   {user ? <span>{localStorage.getItem("favorites").includes(movie.id) ? 
+       <button   onClick={() => deleteToFavorite(movie.id)} 
   className="btn btn-danger mt-2 mb-2">Favorilerimden Çıkar</button>
-  :<button className='btn btn-warning mt-2 mb-2' 
+:<button className='btn btn-warning mt-2 mb-2' 
   onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
-       }
-        </span> : null}<br/>
+       }  
+   </span> : null}<br/>
    <NavLink className='btn btn-success ' to={`/detail/${movie.id}`}> Detay</NavLink>
-        </div>
-    </div>
+ </div>
+</div>
 </div>     
 </div>
  )
