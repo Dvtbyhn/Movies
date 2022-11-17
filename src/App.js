@@ -12,10 +12,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
 import Loading from './components/Loading';
 
-
-
-
-
 export default function App() {
 
 
@@ -24,9 +20,6 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
   const [selectedCategory, setSelectedCategory] = useState();
- 
-  
-
 
   useEffect(() => {
     const get = JSON.parse(localStorage.getItem("favorites"))
@@ -40,8 +33,6 @@ export default function App() {
   useEffect(()=>{
     console.log("app js yüklendi")
   },[])
-
-
 
 
   useEffect(  () => {
@@ -88,8 +79,6 @@ export default function App() {
   const searchMovie = (e) => setSearch(e.target.value)
 
 
-
-
   const addToFavorite = (id) => {
 
     const newFavorite = film.find(item => item.id === id)
@@ -98,20 +87,14 @@ export default function App() {
 
     if (newFavorite) {
       setFavorite([...favorite, newFavorite ])
-     
       toast.success("Film Eklendi")
-    
-   
     }
 
     if (hasFavorite) {
      setFavorite([...favorite])
       toast.error("Film daha önce eklendi")
     }
-
-    
   }
-
 
   const deleteToFavorite = id => {
     const del = favorite.filter(item => item.id !== id);
@@ -123,10 +106,6 @@ export default function App() {
   const deleteAllFavorite = () => {
     setFavorite([])
   }
-
-
-
-  
 
 
   return (
@@ -141,9 +120,8 @@ export default function App() {
         <Routes>
 
           <Route path='/'
-            element={<MovieList
-          
-             
+            element={
+            <MovieList
               search={search}
               movieItem={movieItem}
               handleCategoryChange={handleCategoryChange}
@@ -184,8 +162,7 @@ export default function App() {
             } />
           <Route path='*' element={<Page404 />} />
         </Routes>
-
       }
-      
-    </div>)
+    </div>
+    )
 }

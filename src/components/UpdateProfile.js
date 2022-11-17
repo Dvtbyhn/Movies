@@ -64,7 +64,6 @@ export default function UpdateProfile({ loading }) {
                   onChange={(e) => setDisplayName(e.target.value)}
                 /><br />
               </div>
-
               <div className='mt-3'>
                 <label>Fotoğraf *(isteğe bağlı) </label><br />
                 <input placeholder='Url olarak girin '
@@ -73,11 +72,8 @@ export default function UpdateProfile({ loading }) {
                   onChange={(e) => setAvatar(e.target.value)}
                 /><br />
               </div>
-
               <button type='submit' className='btn btn-success mt-2'>Güncelle</button>
-
             </form>
-
             <form onSubmit={handleResetPassword} className="mt-4">
               <h1>Şifreyi Güncelle</h1>
               <div className='mt-4'>

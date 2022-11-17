@@ -20,8 +20,6 @@ export default function Header({
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  
-
   const { user } = useSelector(state => state.auth)
 
   const handleLogout = async () => {
@@ -32,40 +30,32 @@ export default function Header({
     })
   }
 
-
   return (
     <>
-
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand style={{ color: "white", fontSize: "xxx-large" }}>Best Movies</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor:"white"}} />
           <Navbar.Collapse id="basic-navbar-nav" >
-
             <Nav className="me-auto" >
-
               <ul style={{ listStyle: "none", marginTop: "20px" }}>
 
                 <NavLink className="user-link" id='home'
                   to={"/"}>Ana sayfa</NavLink>
-
-
-                <li >{user ? "" :
+                <li>{user ? "" :
                   <NavLink className="user-link" to={"/signUp"}>Kayıt Ol</NavLink>}
                 </li>
 
-                <li > {user ?
+                <li> {user ?
                   <h5 className='user-name mt-2'>{user.displayName || user.email} </h5> :
                   <NavLink className="user-link" to={"/loginUp"}>Giriş Yap</NavLink>}
                 </li>
-
-                <li >
+                <li>
                   {
                     user.photoURL ? <img src={user.photoURL} alt={user.photoURL}
                       style={{ width: "40px", height: "40px", borderRadius: "10px" }} /> : null
                   }
                 </li>
-
                 <li>
                   {user ?
                     <NavLink to={`/favorite/${userID}`}
@@ -83,22 +73,18 @@ export default function Header({
                     className=' btn btn-dark'>Çıkış Yap</button> : null}
                 </li>
               </ul>
-
             </Nav>
             <Form >
               <Form.Control
                 type="search"
                 placeholder="Search"
-              
                 aria-label="Search"
                 onChange={searchMovie}
               />
             </Form>
           </Navbar.Collapse>
-
         </Container>
       </Navbar>
-
     </>
   )
 }

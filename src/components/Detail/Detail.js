@@ -55,11 +55,7 @@ export default function Detail({ addToFavorite ,favorite,deleteToFavorite}) {
                         <button className='btn btn-warning mt-2 mb-2'
                             onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
                 }
-
-                </span> 
-                
-               : null}
-
+                </span> : null}
               </div>
             </div>
           </div>
