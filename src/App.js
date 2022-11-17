@@ -15,6 +15,7 @@ import Loading from './components/Loading';
 
 
 
+
 export default function App() {
 
 
@@ -22,29 +23,33 @@ export default function App() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
-  
   const [selectedCategory, setSelectedCategory] = useState();
+ 
+  
 
 
-
+  useEffect(() => {
+    const get = JSON.parse(localStorage.getItem("favorites"))
+    setFavorite(get)
+  }, [])
 
   useEffect(() => {
     getMovies()
   }, [])
 
-  useEffect(() => {
-    const get = localStorage.getItem("favorites")
-    setFavorite(JSON.parse(get))
+  useEffect(()=>{
+    console.log("app js yüklendi")
+  },[])
 
-  }, [])
 
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorite))
+
+
+  useEffect(  () => {
+     localStorage.setItem("favorites", JSON.stringify(favorite))
   })
 
 
-
-
+  
   const getMovies = async () => {
     setLoading(true)
     const getData = await axios.get("http://localhost:3001/movies")
@@ -53,9 +58,10 @@ export default function App() {
 
   }
 
-
-
-
+  const detailMovie = async (id) => {
+    await axios.put(`http://localhost:3001/movies/${id}`)
+  }
+ 
   const movieItem = ['Hepsi', ...new Set(film.map(mov =>  mov.kind))]
 
   function getFilteredList() {
@@ -82,9 +88,7 @@ export default function App() {
   const searchMovie = (e) => setSearch(e.target.value)
 
 
-  const detailMovie = async (id) => {
-    await axios.put(`http://localhost:3001/movies/${id}`)
-  }
+
 
   const addToFavorite = (id) => {
 
@@ -93,15 +97,19 @@ export default function App() {
     const hasFavorite = favorite.find(item => item.id === id)
 
     if (newFavorite) {
-      setFavorite([newFavorite, ...favorite])
+      setFavorite([...favorite, newFavorite ])
+     
       toast.success("Film Eklendi")
+    
    
     }
 
     if (hasFavorite) {
-      setFavorite([...favorite])
+     setFavorite([...favorite])
       toast.error("Film daha önce eklendi")
     }
+
+    
   }
 
 
@@ -116,6 +124,11 @@ export default function App() {
     setFavorite([])
   }
 
+
+
+  
+
+
   return (
     <div >
       <Header
@@ -129,6 +142,8 @@ export default function App() {
 
           <Route path='/'
             element={<MovieList
+          
+             
               search={search}
               movieItem={movieItem}
               handleCategoryChange={handleCategoryChange}
@@ -138,6 +153,7 @@ export default function App() {
               setFilm={setFilm}
               filteredList={filteredList}
               addToFavorite={addToFavorite}
+              selectedCategory={selectedCategory}
             />} >
 
           </Route>
@@ -151,6 +167,9 @@ export default function App() {
           <Route path='/detail/:id'
             element={
               <Detail
+              deleteToFavorite={deleteToFavorite}
+
+              favorite={favorite}
                 addToFavorite={addToFavorite}
                 detailMovie={(id, movie) => {
                   detailMovie(id, movie)

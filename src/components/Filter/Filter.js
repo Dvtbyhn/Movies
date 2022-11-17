@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export default function Filter({ handleCategoryChange, movieItem }) {
+export default function Filter({ handleCategoryChange, movieItem,selectedCategory }) {
 
+
+  useEffect(() => { console.log("movieItem:", movieItem) }, [movieItem])
 
 
   return (
     <div className='text-center'>
 
-    <h2 style={{ color:"white" }}>Kategoriler</h2>
+      <h2 style={{ color: "white" }}>Kategoriler</h2>
 
-    <select style={{
-      width:"40%",
-    backgroundColor:"black",
-    color:"white",
-    height:"2.5rem",
-    textAlign:"center"}}
-
-      onChange={handleCategoryChange}>
+      <select style={{
+        width: "40%",
+        backgroundColor: "black",
+        color: "white",
+        height: "2.5rem",
+        textAlign: "center"
+      }}
+        value={selectedCategory}
+        onChange={handleCategoryChange}>
 
         {movieItem.map((kind, id) => {
           return (
-             <option value={kind} 
-              style={{fontSize:"20px",backgroundColor:"black",color:"white"}} 
+            <option value={kind} 
+              style={{ fontSize: "20px", backgroundColor: "black", color: "white" }}
               key={id}> {kind} </option>
           )
         })}

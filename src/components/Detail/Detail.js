@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux"
 
 
-export default function Detail({ addToFavorite, }) {
+export default function Detail({ addToFavorite ,favorite,deleteToFavorite}) {
 
   const { user } = useSelector(state => state.auth)
 
@@ -22,7 +22,7 @@ export default function Detail({ addToFavorite, }) {
   return (
     <div>
       {
-        <div className='container' style={{color:"white"}}>
+        <div className='container' style={{ color: "white" }}>
 
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-3'>
@@ -47,7 +47,18 @@ export default function Detail({ addToFavorite, }) {
               </div>
 
               <div style={{ margin: "30px" }}>
-                {user ? <button onClick={() => addToFavorite(movie.id)} className='btn btn-warning'>Favorilerime Ekle</button> : null}
+                {user ? 
+                   <span> {
+                    favorite.map((x) => x.id).includes(movie.id) ?
+                        <button className='btn btn-danger mt-2 mb-2'
+                            onClick={() => deleteToFavorite(movie.id)}>Favorilerimden Çıkar</button> :
+                        <button className='btn btn-warning mt-2 mb-2'
+                            onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
+                }
+
+                </span> 
+                
+               : null}
 
               </div>
             </div>

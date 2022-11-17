@@ -70,7 +70,7 @@ export default function Header({
                   {user ?
                     <NavLink to={`/favorite/${userID}`}
                       className=' btn btn-danger'>
-                      Favorilerim</NavLink> : null}
+                      Favorilerim <span>{favorite.length < 1 ? "" : favorite.length}</span> </NavLink> : null}
                 </li>
 
                 <li>
