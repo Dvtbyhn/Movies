@@ -7,6 +7,7 @@
       "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qHCZ6LjtmqWDfXXN28TlIC9OppK.jpg",
       "id": 11,
       "kind": "Korku/Gerilim"
+    
     },
  
     {
@@ -31,8 +32,9 @@
       "rating": "8.8",
       "overview": "1943 yılında Belarus’ta Naziler tarafından gerçekleştirilen vahşeti küçük bir çocuğun hikayesi üzerinden bu sarsıcı ve rahatsız edici film, gelmiş geçmiş en korkunç savaş filmlerinden biridir. Savaşın olayların doğal akışını mahveden yakıcı gücünü anlatıyor. Gerçeklere dayanan filmin kahramanı, Beyaz Rusya'lı on altı yaşındaki Flyora. Başta yalnızca bir çocuk olan Flyora, ormana kaçar ve partizanlara katılır. Nazilerin vahşetini yaşadıktan sonra ise Flyora büyür, hatta yaşlanır. Bir zamanlar taptaze olan çocuksu yüzü artık kırışıklıklarla doludur.",
       "id": 16,
-      "kind": "Dram/Tarih/Savaş"
-    },
+      "kind": "Dram/Tarih/Savaş",
+      "comments":"Çok iyi bir film"
+      },
     {
       "name": "Leon",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yI6X2cCM5YPJtxMhUd3dPGqDAhw.jpg",

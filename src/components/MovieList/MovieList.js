@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./style.css"
 import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from "react-redux"
@@ -69,9 +69,7 @@ export default function MovieList({
                                                                 onClick={() => deleteToFavorite(movie.id)}>Favorilerimden Çıkar</button> :
                                                             <button className='btn btn-warning mt-2 mb-2'
                                                                 onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
-                                                    }
-
-                                                    </span> : null}<br />
+                                                    }</span> : null}<br />                                              
                                                     <NavLink className='btn btn-success ' to={`/detail/${movie.id}`}> Detay</NavLink>
                                                 </div>
                                             </div>

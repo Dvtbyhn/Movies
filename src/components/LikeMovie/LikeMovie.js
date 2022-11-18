@@ -12,9 +12,6 @@ export default function LikeMovie({
 }) {
 
 
-
-
-
     return (
         <div>
             <div className='container' >

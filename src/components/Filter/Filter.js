@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 export default function Filter({ handleCategoryChange, movieItem,selectedCategory }) {
 
-
-  useEffect(() => { console.log("movieItem:", movieItem) }, [movieItem])
-
+ 
 
   return (
     <div className='text-center'>
-
       <h2 style={{ color: "white" }}>Kategoriler</h2>
-
       <select style={{
         width: "40%",
         backgroundColor: "black",
@@ -20,7 +16,6 @@ export default function Filter({ handleCategoryChange, movieItem,selectedCategor
       }}
         value={selectedCategory}
         onChange={handleCategoryChange}>
-
         {movieItem.map((kind, id) => {
           return (
             <option value={kind} 
@@ -28,9 +23,7 @@ export default function Filter({ handleCategoryChange, movieItem,selectedCategor
               key={id}> {kind} </option>
           )
         })}
-
       </select>
-
     </div>
   )
 }

@@ -20,6 +20,9 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
   const [selectedCategory, setSelectedCategory] = useState();
+  const [comments,setComments] = useState("")
+  const [movieComment,setMovieComment] = useState([])
+
 
   useEffect(() => {
     const get = JSON.parse(localStorage.getItem("favorites"))
@@ -30,15 +33,18 @@ export default function App() {
     getMovies()
   }, [])
 
-  useEffect(()=>{
-    console.log("app js yüklendi")
-  },[])
-
-
-  useEffect(  () => {
+  useEffect(() => {
      localStorage.setItem("favorites", JSON.stringify(favorite))
   })
 
+  // useEffect(() => {
+  //   const comment = JSON.parse(localStorage.getItem("comments"))
+  //   setMovieComment(comment)
+  // },[])
+
+  // useEffect(() => {
+  //   localStorage.setItem("comments",JSON.stringify(movieComment))
+  // })
 
   
   const getMovies = async () => {
@@ -56,7 +62,6 @@ export default function App() {
   const movieItem = ['Hepsi', ...new Set(film.map(mov =>  mov.kind))]
 
   function getFilteredList() {
-
     if (selectedCategory === "Hepsi") {
       return film
     }
@@ -80,11 +85,8 @@ export default function App() {
 
 
   const addToFavorite = (id) => {
-
     const newFavorite = film.find(item => item.id === id)
-
     const hasFavorite = favorite.find(item => item.id === id)
-
     if (newFavorite) {
       setFavorite([...favorite, newFavorite ])
       toast.success("Film Eklendi")
@@ -107,6 +109,7 @@ export default function App() {
     setFavorite([])
   }
 
+ 
 
   return (
     <div >
@@ -116,9 +119,7 @@ export default function App() {
       />
       <Toaster />
       {loading ? <Loading /> :
-
         <Routes>
-
           <Route path='/'
             element={
             <MovieList
@@ -145,10 +146,15 @@ export default function App() {
           <Route path='/detail/:id'
             element={
               <Detail
-              deleteToFavorite={deleteToFavorite}
-
+              comments={comments}
+              setComments={setComments}
+              movieComment={movieComment}
+              setMovieComment={setMovieComment}
+              setFilm={setFilm}
+               film={film}
               favorite={favorite}
-                addToFavorite={addToFavorite}
+                addToFavorite={addToFavorite} 
+                  deleteToFavorite={deleteToFavorite}
                 detailMovie={(id, movie) => {
                   detailMovie(id, movie)
                 }} />} />
