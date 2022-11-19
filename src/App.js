@@ -37,14 +37,15 @@ export default function App() {
      localStorage.setItem("favorites", JSON.stringify(favorite))
   })
 
-  // useEffect(() => {
-  //   const comment = JSON.parse(localStorage.getItem("comments"))
-  //   setMovieComment(comment)
-  // },[])
+  useEffect(() => {
+    const comment = JSON.parse(localStorage.getItem("movComment"))
+    setMovieComment (comment );
+  },[])
 
-  // useEffect(() => {
-  //   localStorage.setItem("comments",JSON.stringify(movieComment))
-  // })
+
+  useEffect(() => {
+    localStorage.setItem("movComment",JSON.stringify(movieComment))
+  })
 
   
   const getMovies = async () => {
@@ -86,7 +87,7 @@ export default function App() {
 
   const addToFavorite = (id) => {
     const newFavorite = film.find(item => item.id === id)
-    
+  
     if (newFavorite) {
       setFavorite([...favorite, newFavorite ])
       toast.success("Film Eklendi")
@@ -105,7 +106,6 @@ export default function App() {
     setFavorite([])
   }
 
- 
 
   return (
     <div >
@@ -155,8 +155,9 @@ export default function App() {
                   detailMovie(id, movie)
                 }} />} />
 
-          <Route path='/favorite/:userId'
+          <Route path='/favorite'
             element={<LikeMovie
+            search={search}
               deleteAllFavorite={deleteAllFavorite}
               favorite={favorite}
               deleteToFavorite={deleteToFavorite}

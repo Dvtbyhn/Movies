@@ -5,8 +5,8 @@ function Loading() {
     <div style={{ color: "white", textAlign: "center", marginTop: "10rem" }}>
 
       <Spinner size='xl' animation="border" role="status"></Spinner>
-        
-      
+
+
     </div>
   );
 }

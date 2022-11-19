@@ -14,7 +14,7 @@ import Form from 'react-bootstrap/Form';
 export default function Header({
   searchMovie,
   favorite,
-  userID,
+
 }) {
 
   const navigate = useNavigate()
@@ -45,7 +45,6 @@ export default function Header({
                 <li>{user ? "" :
                   <NavLink className="user-link" to={"/signUp"}>Kayıt Ol</NavLink>}
                 </li>
-
                 <li> {user ?
                   <h5 className='user-name mt-2'>{user.displayName || user.email} </h5> :
                   <NavLink className="user-link" to={"/loginUp"}>Giriş Yap</NavLink>}
@@ -58,16 +57,14 @@ export default function Header({
                 </li>
                 <li>
                   {user ?
-                    <NavLink to={`/favorite/${userID}`}
+                    <NavLink to={`/favorite`}
                       className=' btn btn-danger'>
                       Favorilerim <span>{favorite.length < 1 ? "" : favorite.length}</span> </NavLink> : null}
                 </li>
-
                 <li>
                   {user ? <NavLink to={"/update"}
                     className=' btn btn-dark'>Profil</NavLink> : null}
                 </li>
-
                 <li >
                   {user ? <button onClick={handleLogout}
                     className=' btn btn-dark'>Çıkış Yap</button> : null}

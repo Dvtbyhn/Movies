@@ -43,11 +43,7 @@ export default function MovieList({
                                 return (
                                     <div key={i} className='col-md-6 col-lg-3 p-3 '>
                                         <div
-                                            className="card text-center"
-                                            style={{
-                                                boxShadow: "5px 4px 8px gray,5px 5px 18px black ,2px 3px 4px 4px green",
-                                                backgroundColor: "black", color: "white"
-                                            }}>
+                                            className="card-list text-center">
                                             <NavLink
                                                 to={`/detail/${movie.id}`}>
                                                 <img
@@ -62,7 +58,6 @@ export default function MovieList({
                                                 <div className='card-footer'>
                                                     <div>PUAN: {movie.rating} </div>
                                                     <div>TÜR: {movie.kind} </div>
-
                                                     {user ? <span> {
                                                         favorite.map((x) => x.id).includes(movie.id) ?
                                                             <button className='btn btn-danger mt-2 mb-2'
@@ -70,7 +65,7 @@ export default function MovieList({
                                                             <button className='btn btn-warning mt-2 mb-2'
                                                                 onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
                                                     }</span> : null}<br />                                              
-                                                    <NavLink className='btn btn-success ' to={`/detail/${movie.id}`}> Detay</NavLink>
+                                                    <NavLink className='btn btn-success mb-3 ' to={`/detail/${movie.id}`}> Detay</NavLink>
                                                 </div>
                                             </div>
                                         </div>

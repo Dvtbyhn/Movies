@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import toast from 'react-hot-toast';
 import Card from 'react-bootstrap/Card';
 import "./Detail.css"
+import { nanoid } from '@reduxjs/toolkit';
 
 export default function Detail({
   addToFavorite,
@@ -16,6 +17,8 @@ export default function Detail({
   comments,
   setComments
 }) {
+
+
   const { user } = useSelector(state => state.auth)
   const [movie, setMovie] = useState({})
   const { id } = useParams()
@@ -29,6 +32,7 @@ export default function Detail({
     setComments(e.target.value)
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (comments !== "") {
@@ -41,14 +45,13 @@ export default function Detail({
   }
 
   const newComment = () => {
-    const add = { comment: comments }
+    const add = { id: nanoid(), comment: comments }
     movieComment.push(add)
-    setMovieComment([...movieComment].sort((a,b) => {
-      return a.first > b.first ? 1 :-1
+    setMovieComment([...movieComment].sort((a, b) => {
+      return a.first > b.first ? 1 : - 1
     }))
     toast.success("Yorumunuz eklendi")
   }
-
 
   return (
     <div>
@@ -91,51 +94,45 @@ export default function Detail({
                 <h5 className='mt-4'>Yorumunu Paylaş</h5>
                 <form onSubmit={handleSubmit}>
                   <textarea
-                     className='texterea'
-                     style={{outline:"none"}}
+                    placeholder='Yorumunu yaz...'
+                    className='texterea'
+                    style={{ outline: "none", backgroundColor: "black", color: "white" }}
                     value={comments}
                     onChange={handleChange}
                     cols={60}
                     rows={3} />
                   <button
-                   className='btn btn-success mb-4' 
-                   style={{marginLeft:"20px"}}
+                    className='btn btn-success mb-4'
+                    style={{ marginLeft: "20px" }}
                   >Gönder</button>
                 </form>
-                     
                 <div>
-                    {
-                      Array.isArray(movieComment)
-                        ? movieComment.map((item) => {
-                          return (
-                            <>                 
-                              <Card className='cardComment' style={{
-                                color:"black",
-                                backgroundColor:"gray",
-                                maxWidth:"500px",
-                                marginBottom:"10px"}}>
-                                <Card.Header className='d-inline-flex justify-content-between'>                            
-                                  <div className='d-inline-flex justify-content-between mt-3' >
-                                    <h6> Yazıldığı Tarih</h6>{" : "}
-                                    <p>{(new Date().getDate())}</p>{"."}
-                                     <p>{(new Date().getMonth())}</p>{"."}
-                                    <p>{(new Date().getFullYear())}</p>
-                                    </div>
-                                 <button  className='btn btn-dark'>cevapla</button>
-                                </Card.Header>
-                                <Card.Body>                                
-                                  <div className=''>
-                                    <p>{item.comment}</p>    
-                              </div>
-                                </Card.Body>
-                              </Card>
-                            </>
-                          )
-                        }) : null
-                    }
-                  </div>
+                  {
+                    Array.isArray(movieComment)
+                      ? movieComment.map((item, id) => {
+                        return (
+                          <>
+                            <Card  className='cardComment'>
+                              <Card.Header className='d-inline-flex justify-content-between'>
+                                <div key={id}>{user.displayName}</div>
+                                <div className='d-inline-flex justify-content-around'>
+                                  <div> Yazıldığı Tarih</div>{":"}
+                                  <p>{(new Date().getDate())}</p>{"."}
+                                  <p>{(new Date().getMonth())}</p>{"."}
+                                  <p>{(new Date().getFullYear())}</p>
+                                </div>
+                              </Card.Header>
+                              <Card.Body>  
+                                  {item.comment}     
+                              </Card.Body>
+                              <Card.Footer>     
+                               </Card.Footer>
+                            </Card>
+                          </>
+                        )
+                      }) : null }
                 </div>
-
+              </div>
             </div>
           </div>
         </div>

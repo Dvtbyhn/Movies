@@ -7,9 +7,7 @@
       "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qHCZ6LjtmqWDfXXN28TlIC9OppK.jpg",
       "id": 11,
       "kind": "Korku/Gerilim"
-    
     },
- 
     {
       "name": "The Godfather",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vseIVRdN4xasYwStQIi6SI7DcEu.jpg",
@@ -33,8 +31,8 @@
       "overview": "1943 yılında Belarus’ta Naziler tarafından gerçekleştirilen vahşeti küçük bir çocuğun hikayesi üzerinden bu sarsıcı ve rahatsız edici film, gelmiş geçmiş en korkunç savaş filmlerinden biridir. Savaşın olayların doğal akışını mahveden yakıcı gücünü anlatıyor. Gerçeklere dayanan filmin kahramanı, Beyaz Rusya'lı on altı yaşındaki Flyora. Başta yalnızca bir çocuk olan Flyora, ormana kaçar ve partizanlara katılır. Nazilerin vahşetini yaşadıktan sonra ise Flyora büyür, hatta yaşlanır. Bir zamanlar taptaze olan çocuksu yüzü artık kırışıklıklarla doludur.",
       "id": 16,
       "kind": "Dram/Tarih/Savaş",
-      "comments":"Çok iyi bir film"
-      },
+      "comments": "Çok iyi bir film"
+    },
     {
       "name": "Leon",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yI6X2cCM5YPJtxMhUd3dPGqDAhw.jpg",
@@ -130,7 +128,6 @@
       "overview": "Aydın emekli bir tiyatrocudur; oyunculuğu bıraktıktan sonra Kapadokya'ya babasından yadigar kalan butik oteli işletmek için geri döner. Aydın o günden sonra başlayan kış uykusu bu gözlerden ırak otelin içerisindeki gündelikleriyle, kâh yerel bir gazeteye köşe yazıları yazarak kâh her zaman niyetlendiği ancak bir türlü başlayamadığı tiyatro tarihi kitabını yazmayı düşünerek geçer. Tüm bu süreçte hayatında iki kadın vardır: Kendisine her anlamda uzak ve soğuk davranan genç karısı Nihal ve boşandıktan sonra yanlarına taşınan kız kardeşi Necla... Kışın bastırması ve artan kar yağışı bu küçük taşrada en çok Aydın'ın sinirlerine dokunur ve onu uzaklara gitmeye teşvik eder...",
       "id": 28,
       "kind": "Dram"
-  
     },
     {
       "name": "Forrest Gump",

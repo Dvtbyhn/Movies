@@ -1,8 +1,10 @@
-img:hover {
-  opacity: 90%;
-  cursor: pointer;
+.head {
+  margin-top: 12rem;
+  color: white;
+  text-align: center;
 }
-.card-list {
+
+.card {
   background-color: black;
   color: white;
   box-shadow: 0px 0px 15px white;
