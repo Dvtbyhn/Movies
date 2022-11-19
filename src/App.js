@@ -86,16 +86,12 @@ export default function App() {
 
   const addToFavorite = (id) => {
     const newFavorite = film.find(item => item.id === id)
-    const hasFavorite = favorite.find(item => item.id === id)
+    
     if (newFavorite) {
       setFavorite([...favorite, newFavorite ])
       toast.success("Film Eklendi")
     }
 
-    if (hasFavorite) {
-     setFavorite([...favorite])
-      toast.error("Film daha önce eklendi")
-    }
   }
 
   const deleteToFavorite = id => {
