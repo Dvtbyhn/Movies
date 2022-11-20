@@ -1,0 +1,123 @@
+
+.nav{
+  background: linear-gradient(to left, #adb8c5,#03192e ); 
+  border-bottom:1px solid rgb(8, 172, 82);
+  
+}
+
+
+.user-link {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  padding: 12px;
+  }
+
+.user-link:hover {
+  color: white;
+}
+
+#home {
+  color: white;
+  font-size: x-large;
+}
+
+.home:hover {
+  color: white;
+}
+
+.user-name {
+  color: white;
+}
+
+ul {
+  display: flex;
+}
+
+ul li {
+  padding:  12px;
+}
+.form-header {
+  max-width: 40%;
+  margin: auto;
+}
+.icon {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon i {
+  position: absolute;
+}
+
+.searchIcon {
+  padding: 10px;
+  min-width: 50px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.btn {
+  color: white;
+}
+.btn:hover {
+  color: white;
+}
+
+.twiceBtn {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+
+.twiceBtn:hover {
+  color: white;
+}
+
+.outBtn {
+  color: white;
+  background-color: #062b42;
+  border: none;
+  text-decoration: none;
+}
+
+.btn {
+  font-size: large;
+}
+
+@media (max-width: 990px) {
+  ul {
+    display: block;
+    text-align: center;
+  }
+
+  ul li {
+    font-size: large;
+    margin: 10px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .user-link {
+    text-decoration: none;
+    color: white;
+  }
+
+  #home {
+    font-size: large;
+    margin-top:5px;
+  }
+
+  .twiceBtn {
+    font-size: small;
+  }
+
+  .btn {
+    font-size: small;
+  }
+
+}

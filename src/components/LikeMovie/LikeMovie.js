@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Modals from '../Modal/Modal';
-import "./LikeMovie.css"
+import "../Style/LikeMovie.css"
 
 export default function LikeMovie({
     favorite,

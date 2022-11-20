@@ -2,19 +2,20 @@ import React, { useEffect, useState, useMemo } from 'react'
 import MovieList from './components/MovieList/MovieList'
 import axios from "axios"
 import { Routes, Route } from 'react-router-dom';
-import LoginUp from './components/LoginUp/LoginUp';
-import SignUp from './components/SignUp/SignUp';
+import Login from './components/Login/Login';
+import Sign from './components/Sign/Sign';
 import Page404 from './Page404';
 import Detail from './components/Detail/Detail';
 import Header from "./components/Header/Header"
-import UpdateProfile from './components/UpdateProfile';
+import Profile from './components/Profile';
 import toast, { Toaster } from 'react-hot-toast';
 import LikeMovie from './components/LikeMovie/LikeMovie';
 import Loading from './components/Loading';
+import "./App.css"
 
 export default function App() {
 
-  const [film, setFilm] = useState([])
+  const [movies, setMovies] = useState([])
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [favorite, setFavorite] = useState([])
@@ -49,7 +50,7 @@ export default function App() {
   const getMovies = () => {
     setLoading(true)
     axios.get("http://localhost:3001/movies")
-      .then((response) => setFilm(response.data))
+      .then((response) => setMovies(response.data))
       .catch(() => { })
       .finally(() => setLoading(false))
 
@@ -59,23 +60,23 @@ export default function App() {
     await axios.put(`http://localhost:3001/movies/${id}`)
   }
 
-  const movieItem = ['Hepsi', ...new Set(film.map(mov => mov.kind))]
+  const movieItem = ['Hepsi', ...new Set(movies.map(mov => mov.kind))]
 
   function getFilteredList() {
     if (selectedCategory === "Hepsi") {
-      return film
+      return movies
     }
 
     if (!selectedCategory) {
-      return film;
+      return movies;
     }
 
-    return film.filter((item) => item.kind === selectedCategory)
+    return movies.filter((item) => item.kind === selectedCategory)
 
   }
 
 
-  var filteredList = useMemo(getFilteredList, [selectedCategory, film]);
+  const categoryList = useMemo(getFilteredList, [selectedCategory, movies]);
 
   function handleCategoryChange(e) {
     setSelectedCategory(e.target.value);
@@ -85,7 +86,7 @@ export default function App() {
 
 
   const addToFavorite = (id) => {
-    const newFavorite = film.find(item => item.id === id)
+    const newFavorite = movies.find(item => item.id === id)
 
     if (newFavorite) {
       setFavorite([...favorite, newFavorite])
@@ -122,21 +123,19 @@ export default function App() {
                 movieItem={movieItem}
                 handleCategoryChange={handleCategoryChange}
                 favorite={favorite}
-                film={film}
                 deleteToFavorite={deleteToFavorite}
-                setFilm={setFilm}
-                filteredList={filteredList}
+                categoryList={categoryList}
                 addToFavorite={addToFavorite}
                 selectedCategory={selectedCategory}
               />} >
 
           </Route>
 
-          <Route path='/update' element={<UpdateProfile />} />
+          <Route path='/profile' element={<Profile />} />
 
-          <Route path='/signUp' element={<SignUp />} />
+          <Route path='/sign-up' element={<Sign />} />
 
-          <Route path='/loginUp' element={<LoginUp />} />
+          <Route path='/login-up' element={<Login />} />
 
           <Route path='/detail/:id'
             element={
@@ -145,8 +144,6 @@ export default function App() {
                 setComments={setComments}
                 movieComment={movieComment}
                 setMovieComment={setMovieComment}
-                setFilm={setFilm}
-                film={film}
                 favorite={favorite}
                 addToFavorite={addToFavorite}
                 deleteToFavorite={deleteToFavorite}

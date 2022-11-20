@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux"
 import toast from 'react-hot-toast';
 import Card from 'react-bootstrap/Card';
-import "./Detail.css"
+import "../Style/Detail.css"
 import { nanoid } from '@reduxjs/toolkit';
 
 export default function Detail({

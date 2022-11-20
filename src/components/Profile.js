@@ -8,7 +8,7 @@ import Loading from './Loading'
 
 
 
-export default function UpdateProfile({ loading }) {
+export default function Profile({ loading }) {
 
   const dispatch = useDispatch()
 

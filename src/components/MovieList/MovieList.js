@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.css"
+import "../Style/style.css"
 import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from "react-redux"
 import Filter from '../Filter/Filter';
@@ -8,11 +8,9 @@ import Footer from '../Footer/Footer';
 export default function MovieList({
     search,
     addToFavorite,
-    setFilm,
-    film,
     handleCategoryChange,
     movieItem,
-    filteredList,
+    categoryList,
     deleteToFavorite,
     favorite,
     selectedCategory
@@ -28,12 +26,10 @@ export default function MovieList({
                     <Filter
                         handleCategoryChange={handleCategoryChange}
                         movieItem={movieItem}
-                        film={film}
-                        setFilm={setFilm}
                         selectedCategory={selectedCategory}
                     />
                     {
-                        filteredList
+                        categoryList
                             .filter((movie) =>
                                 movie.name.toLowerCase()
                                     .indexOf(search.toLowerCase()) !== -1
@@ -62,7 +58,7 @@ export default function MovieList({
                                                         favorite.map((x) => x.id).includes(movie.id) ?
                                                             <button className='btn btn-danger mt-2 mb-2'
                                                                 onClick={() => deleteToFavorite(movie.id)}>Favorilerimden Çıkar</button> :
-                                                            <button className='btn btn-warning mt-2 mb-2'
+                                                            <button id='bt' className='btn text-dark mt-2 mb-2'
                                                                 onClick={() => addToFavorite(movie.id)}>Favorilerime ekle</button>
                                                     }</span> : null}<br />                                              
                                                     <NavLink className='btn btn-success mb-3 ' to={`/detail/${movie.id}`}> Detay</NavLink>
