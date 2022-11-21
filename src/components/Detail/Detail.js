@@ -95,8 +95,7 @@ export default function Detail({
                 <form onSubmit={handleSubmit}>
                   <textarea
                     placeholder='Yorumunu yaz...'
-                    className='texterea'
-                    style={{ outline: "none", backgroundColor: "black", color: "white" }}
+                    style={{ outline: "none"}}
                     value={comments}
                     onChange={handleChange}
                     cols={60}
