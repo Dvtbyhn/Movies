@@ -115,12 +115,7 @@ export default function Detail({
                             <Card  className='cardComment'>
                               <Card.Header className='d-inline-flex justify-content-between'>
                                 <div key={id}>{user.displayName}</div>
-                                <div className='d-inline-flex justify-content-around'>
-                                  <div> Yazıldığı Tarih</div>{":"}
-                                  <p>{(new Date().getDate())}</p>{"."}
-                                  <p>{(new Date().getMonth())}</p>{"."}
-                                  <p>{(new Date().getFullYear())}</p>
-                                </div>
+                            
                               </Card.Header>
                               <Card.Body>  
                                   {item.comment}     

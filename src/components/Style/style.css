@@ -3,15 +3,12 @@ img:hover {
   cursor: pointer;
 }
 .card-list {
-  background: #bdc3c7;  
-  background: linear-gradient(to top, #010c18, #71a1c2); 
-  box-shadow:0px 0px 6px 3px #cfd5d8;
+  background: #bdc3c7;
+  background: linear-gradient(to top, #010c18, #71a1c2);
+  box-shadow: 0px 0px 6px 3px #cfd5d8;
   color: white;
- 
 }
 
-
-#bt{
-  
+#bt {
   background-color: rgb(194, 194, 194);
 }
