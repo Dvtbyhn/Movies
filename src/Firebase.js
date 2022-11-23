@@ -4,8 +4,8 @@ import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged, updatePassword
 } from "firebase/auth";
 import toast from "react-hot-toast";
-import store from "./store";
-import { login as loginHandle, logout as logOutHandle } from "./store/auth";
+import store from "./redux/store";
+import { login as loginHandle, logout as logOutHandle } from "./redux/auth/authSlice";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBFkpbq00omiEsP0aCJJOLMovYMO4v2MLs",
@@ -17,12 +17,8 @@ const firebaseConfig = {
   measurementId: "G-BV4QY5Q5ZB"
 };
 
-
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
-
-
 
 export const register = async (email, password, photoURL) => {
   try {
@@ -31,8 +27,6 @@ export const register = async (email, password, photoURL) => {
   } catch (error) {
     toast.error(error.message)
   }
-
-
 }
 
 export const signIn = async (email, password) => {

@@ -1,22 +1,18 @@
 import React, { useState } from 'react'
-import { register } from '../../Firebase'
+import "./Style/Login.css"
+import { signIn } from '../Firebase'
 import { Toaster } from "react-hot-toast"
-import "../Style/Sign.css"
 import { useNavigate } from 'react-router-dom'
 
-
-export default function Sign() {
-
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [photoURL] = useState("")
-
+export default function Login() {
 
     const navigate = useNavigate()
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const user = await register(email, password, photoURL)
+        const user = await signIn(userName, password)
         if (user) {
             navigate("/", {
                 replace: true
@@ -25,37 +21,34 @@ export default function Sign() {
     }
     return (
         <>
-            <div className='container-sign ' >
-                <div className='card-sign'>
 
-                    <div className=" text-center" >
-                        <h2 className="title ">Üyelik İşlemleri</h2>
+            <div className='container-login'> 
+                <div className='card-login'>
+                    <img src="https://media.tenor.com/y1yvLwIhfNwAAAAC/television-galaxies.gif"
+                        className="gif " alt="..." />
+                    <div className="" >
+                        <h2 className="title ">Giriş Yap</h2>
                         <Toaster />
-                        <form onSubmit={handleSubmit}>
-
+                        <form  onSubmit={handleSubmit}>
                             <div className='mt-3'>
                                 <label>Kullanıcı Adı</label><br />
-                                <input type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)} /><br />
+                                <input type="text"
+                                    value={userName}
+                                    onChange={(e) => setUserName(e.target.value)} /><br />
                             </div>
-
                             <div className='mt-4'>
                                 <label>Şifre</label><br />
                                 <input type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)} /><br />
                             </div>
-
                             <button type='submit'
-                                className='btn btn-success mt-2'>Üye  Ol</button>
-
+                                className='btn btn-success mt-2'>Giriş Yap</button>
                         </form>
                     </div>
                 </div>
-
+                
             </div>
-
 
         </>
     )

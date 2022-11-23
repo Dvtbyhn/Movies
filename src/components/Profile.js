@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { update, resetPassword, auth } from '../Firebase'
 import { useDispatch, useSelector } from 'react-redux'
-import { login } from '../store/auth'
+import { authState, login } from '../redux/auth/authSlice'
 import toast, { Toaster } from 'react-hot-toast'
 import Loading from './Loading'
 
@@ -12,7 +12,7 @@ export default function Profile({ loading }) {
 
   const dispatch = useDispatch()
 
-  const { user } = useSelector(state => state.auth)
+  const  user  = useSelector(authState)
 
   const [displayName, setDisplayName] = useState(user.displayName || "")
   const [avatar, setAvatar] = useState(user.photoURL || "")

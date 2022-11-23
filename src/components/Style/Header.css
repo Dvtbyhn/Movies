@@ -4,7 +4,10 @@
   border-bottom:1px solid rgb(8, 172, 82);
   
 }
-
+ul{
+  list-style: none;
+  margin-top: 20px;
+}
 
 .user-link {
   text-decoration: none;
@@ -31,15 +34,17 @@
 }
 
 ul {
-  display: flex;
+  display: inline-flex;
 }
 
 ul li {
-  padding:  12px;
+  padding:  5px;
+  margin-top: 8px;
 }
 .form-header {
-  max-width: 40%;
+  max-width: 20%;
   margin: auto;
+  margin-top: 33px;
 }
 .icon {
   width: 100%;
@@ -95,9 +100,14 @@ ul li {
   }
 
   ul li {
-    font-size: large;
     margin: 10px;
-    padding: 0px;
+  }
+  .search{
+    width: 150px;
+  
+  }
+  .form-header{
+    margin-top: -70px;
   }
 }
 
@@ -107,17 +117,12 @@ ul li {
     color: white;
   }
 
-  #home {
-    font-size: large;
-    margin-top:5px;
+  ul li {
+    margin: 0px;
+    margin-top: 7px;
   }
 
-  .twiceBtn {
-    font-size: small;
+  .form-header {
+   margin-top: 30px;
   }
-
-  .btn {
-    font-size: small;
-  }
-
 }

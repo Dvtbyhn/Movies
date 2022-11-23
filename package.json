@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "connect":"json-server --watch ./src/api/movies.json --port 3001"
+    "connect": "json-server --watch ./src/api/movies.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
