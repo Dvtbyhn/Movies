@@ -14,8 +14,6 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Badge } from 'react-bootstrap';
 import { favoriteMovies, searchMovie } from '../redux/movies/moviesSlice';
 
-
-
 export default function Header() {
 
   const navigate = useNavigate()
@@ -27,43 +25,37 @@ export default function Header() {
   const handleLogout = async () => {
     await logout()
     dispatch(logoutHandle())
-    navigate("login-up", {
+    navigate("login", {
       replace: true
     })
   }
 
-  const handleSubmit =(e)=> {
+  const handleSubmit = (e) => {
     e.preventDefault()
   }
 
-  
-
   return (
     <>
-      <Navbar className='nav' expand="lg">
+      {user ? <Navbar className='nav' expand="lg">
         <Container>
-          <Navbar.Brand style={{ color: "white", fontSize: "xx-large" }}>Best Movies</Navbar.Brand>
+          <Navbar.Brand className='navbar-brand'>Best Movies</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
               <ul >
-                <NavLink className="user-link" id='home'
-                  to={"/"}>Ana sayfa</NavLink>
+                {user ? <NavLink className="user-link" id='home'
+                  to={"/"}>Ana sayfa</NavLink> : null}
                 <li>{user ? "" :
-                  <NavLink className="user-link" to={"/sign-up"}>Kayıt Ol</NavLink>}
+                  <NavLink className="user-link" to={"/sign"}>Kayıt Ol</NavLink>}
                 </li>
                 <li> {user ?
                   <div className='user-name mt-2'>{user.displayName || user.email} </div> :
-                  <NavLink className="user-link" to={"/login-up"}>Giriş Yap</NavLink>}
+                  <NavLink className="user-link" to={"/login"}>Giriş Yap</NavLink>}
                 </li>
                 <li>
                   {user.photoURL ?
-                    <img style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "10px"
-                    }} src={user.photoURL}
+                    <img className='image' src={user.photoURL}
                       alt={user.displayName} /> : null}
                 </li>
                 <li>
@@ -92,25 +84,43 @@ export default function Header() {
                 </li>
               </ul>
             </Nav>
-            <Form className='form-header' onSubmit={handleSubmit}>
+            {user ? <Form className='form-header' onSubmit={handleSubmit}>
               <div className='icon'>
                 <i className='searchIcon'>
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </i>
                 <Form.Control
-              
                   onChange={(e) => dispatch(searchMovie(e.target.value))}
                   className='search'
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
-
                 />
               </div>
-            </Form>
+            </Form> : null}
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> :
+        <Navbar className='nav' >
+          <Container>
+            <Navbar.Brand className='navbar-brand'>Best Movies</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto" >
+                <ul className='no-list' >
+                  {user ? <NavLink className="user-link" id='home'
+                    to={"/"}>Ana sayfa</NavLink> : null}
+                  <li>
+                    <NavLink className="no-user" to={"/sign"}>Kayıt Ol</NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="no-user" to={"/login"}>Giriş Yap</NavLink>
+                  </li>
+                </ul>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>}
     </>
   )
 }

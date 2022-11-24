@@ -9,7 +9,7 @@ export default function LikeMovie() {
 
     const favorite = useSelector(favoriteMovies)
     const filtered = useSelector(filteredFavorites)
-    
+
     const dispatch = useDispatch()
 
     return (
@@ -23,10 +23,10 @@ export default function LikeMovie() {
                         favorite.length < 1 ?
                             <h1 className='head'> Henüz film eklemediniz! </h1>
                             :
-                            filtered.map((movie,id) => {
+                            filtered.map((movie, id) => {
                                 return (
                                     <>
-                                        <div  className='col-xs-12 col-sm-12 col-md-6 col-lg-3 g-5'>
+                                        <div className='col-xs-12 col-sm-12 col-md-6 col-lg-3 g-5'>
                                             <div key={id} className="card text-center">
                                                 <NavLink to={`/detail/${movie.id}`}>
                                                     <img src={movie.imageURL}
@@ -39,7 +39,7 @@ export default function LikeMovie() {
                                                     <button
                                                         style={{ marginRight: "5px" }}
                                                         className='btn btn-danger'
-                                                        onClick={() =>dispatch(deleteToFavorite(movie.id))}>Favorimden Çıkar</button>
+                                                        onClick={() => dispatch(deleteToFavorite(movie.id))}>Favorimden Çıkar</button>
                                                     <NavLink className='btn btn-success'
                                                         to={`/detail/${movie.id}`}> Detay</NavLink>
                                                 </div>

@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { register } from '../Firebase'
-import { Toaster } from "react-hot-toast"
 import "./Style/Sign.css"
 import { useNavigate } from 'react-router-dom'
-
+import { faUser, faKey,faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Sign() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [photoURL] = useState("")
-
 
     const navigate = useNavigate()
 
@@ -25,22 +24,22 @@ export default function Sign() {
     }
     return (
         <>
-            <div className='container-sign ' >
+            <div className='container-sign'>
                 <div className='card-sign'>
-
-                    <div className=" text-center" >
+                <i className='userPlus'><FontAwesomeIcon icon={faUserPlus} /></i>
+                    <div className=" text-center">
                         <h2 className="title ">Üyelik İşlemleri</h2>
-                        <Toaster />
                         <form onSubmit={handleSubmit}>
-
                             <div className='mt-3'>
-                                <label>Kullanıcı Adı</label><br />
+                                <i><FontAwesomeIcon icon={faUser} /> </i>
+                                <label>Kullanıcı e-mail</label><br />
                                 <input type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)} /><br />
                             </div>
 
                             <div className='mt-4'>
+                                <i><FontAwesomeIcon icon={faKey} /> </i>
                                 <label>Şifre</label><br />
                                 <input type="password"
                                     value={password}

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import "./Style/Login.css"
 import { signIn } from '../Firebase'
-import { Toaster } from "react-hot-toast"
 import { useNavigate } from 'react-router-dom'
+import { faUser, faKey, faUserTie } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Login() {
 
@@ -21,22 +22,21 @@ export default function Login() {
     }
     return (
         <>
-
-            <div className='container-login'> 
-                <div className='card-login'>
-                    <img src="https://media.tenor.com/y1yvLwIhfNwAAAAC/television-galaxies.gif"
-                        className="gif " alt="..." />
-                    <div className="" >
-                        <h2 className="title ">Giriş Yap</h2>
-                        <Toaster />
-                        <form  onSubmit={handleSubmit}>
+            <div className='container-login'>
+                <div className='log'>
+                    <i className='userTie'><FontAwesomeIcon icon={faUserTie} /></i>
+                    <div>
+                        <h2>Giriş Yap</h2>
+                        <form onSubmit={handleSubmit}>
                             <div className='mt-3'>
+                                <i><FontAwesomeIcon icon={faUser} /> </i>
                                 <label>Kullanıcı Adı</label><br />
                                 <input type="text"
                                     value={userName}
                                     onChange={(e) => setUserName(e.target.value)} /><br />
                             </div>
                             <div className='mt-4'>
+                                <i><FontAwesomeIcon icon={faKey} /> </i>
                                 <label>Şifre</label><br />
                                 <input type="password"
                                     value={password}
@@ -47,8 +47,10 @@ export default function Login() {
                         </form>
                     </div>
                 </div>
-                
+
             </div>
+
+
 
         </>
     )

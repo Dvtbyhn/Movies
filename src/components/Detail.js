@@ -26,7 +26,7 @@ export default function Detail() {
   return (
     <div>
       {
-        <div className='container' style={{ color: "white" }}>
+        <div className='container' style={{ color: "white" }} >
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-3'>
               <div className="card mt-5" >

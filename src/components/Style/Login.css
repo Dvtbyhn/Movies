@@ -1,14 +1,22 @@
 .container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
   text-align: center;
-  color: white;
 }
 
-.card-login {
-  display: inline-block;
+.log {
+  padding: 50px;
+  border-radius: 22px;
+  height: 40rem;
+  background: white;
+  box-shadow: 0 0 5px 2px rgb(156, 144, 144);
 }
 
-.gif {
-  width: 100%;
+.userTie {
+  font-size: 160px;
+  color: rgb(13, 13, 71);
 }
 
 input {
@@ -18,4 +26,17 @@ input {
   border: none;
   outline: none;
   text-align: center;
+}
+
+@media (min-width: 360px) and (max-width: 741px) {
+  .log {
+    padding: 10px;
+    height: 25rem;
+    background: white;
+    box-shadow: 0 0 5px 2px rgb(156, 144, 144);
+  }
+  .userTie {
+    font-size: 50px;
+    color: rgb(13, 13, 71);
+  }
 }

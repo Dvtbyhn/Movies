@@ -14,7 +14,7 @@ export default function Filter() {
 
   return (
     <div className=' text-center'>
-      <h2 >Kategoriler</h2>
+      <h2 className="text-light">Kategoriler</h2>
       <select className='categoryFilter'
         value={category}
         onChange={(e) => dispatch(categoryMovies(e.target.value))}

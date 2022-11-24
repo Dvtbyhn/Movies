@@ -9,7 +9,7 @@ export default function Modals() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
     const dispatch = useDispatch()
 
     return (
@@ -18,11 +18,11 @@ export default function Modals() {
                 Hepsini Sil
             </Button>
             <Modal style={{
-                     opacity:"80%",
-                     color:""}} show={show} onHide={handleClose} animation={false}>
+                opacity: "80%",
+            }} show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                 </Modal.Header>
-                <Modal.Body 
+                <Modal.Body
                 >Bütün filmler silinecek. Emin misiniz?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

@@ -14,7 +14,7 @@ export default function MovieList() {
     const category = useSelector(categories)
     const search = useSelector(state => state.movies.search)
 
-   const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     function getFilteredList() {
         if (category === "Hepsi") {

@@ -1,8 +1,4 @@
-body{
-
-    background: #bdc3c7; 
-    background: linear-gradient(to top, #2c3e50,#2c3e50 ); 
-    background-size:contain;
-   background-position: 100%;
- 
+body {
+  background: linear-gradient(to right, #2c3e50,#738392 ); 
+  
 }

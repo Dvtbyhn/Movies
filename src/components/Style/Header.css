@@ -1,10 +1,15 @@
-
-.nav{
-  background: linear-gradient(to left, #adb8c5,#03192e ); 
-  border-bottom:1px solid rgb(8, 172, 82);
-  
+.nav {
+  background: linear-gradient(to left, #adb8c5, #03192e);
+  border-bottom: 1px solid rgb(8, 172, 82);
 }
-ul{
+.navbar-brand {
+  color: white;
+  font-size: xx-large;
+}
+.navbar-brand:hover {
+  color: white;
+}
+ul {
   list-style: none;
   margin-top: 20px;
 }
@@ -14,7 +19,7 @@ ul{
   color: white;
   font-size: x-large;
   padding: 12px;
-  }
+}
 
 .user-link:hover {
   color: white;
@@ -38,7 +43,7 @@ ul {
 }
 
 ul li {
-  padding:  5px;
+  padding: 5px;
   margin-top: 8px;
 }
 .form-header {
@@ -93,21 +98,75 @@ ul li {
   font-size: large;
 }
 
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.no-list {
+  display: flex;
+}
+.no-user {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+}
+.no-user:hover {
+  color: white;
+}
+
 @media (max-width: 990px) {
-  ul {
-    display: block;
+  .navbar-brand {
+    color: white;
+    font-size: xx-large;
     text-align: center;
   }
+  .user-link {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+  }
 
+  #home {
+    font-size: large;
+  }
+  ul {
+    display: grid;
+    text-align: center;
+  }
   ul li {
-    margin: 10px;
+    margin-top: 3px;
   }
-  .search{
-    width: 150px;
-  
+  .form-header {
+    max-width: 30%;
+    margin: auto;
   }
-  .form-header{
-    margin-top: -70px;
+  .btn {
+    color: white;
+  }
+  .btn:hover {
+    color: white;
+  }
+
+  .twiceBtn {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+  }
+
+  .twiceBtn:hover {
+    color: white;
+  }
+
+  .outBtn {
+    color: white;
+    background-color: #062b42;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn {
+    font-size: large;
   }
 }
 
@@ -123,6 +182,6 @@ ul li {
   }
 
   .form-header {
-   margin-top: 30px;
+    margin-top: 30px;
   }
 }
