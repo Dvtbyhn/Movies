@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast';
 import Loading from './components/Loading';
-import "./App.css"
+import "./Style/App.css"
 import { fetchMovies } from './redux/movies/moviesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { authState } from './redux/auth/authSlice';
@@ -13,7 +13,7 @@ import Page404 from './Page404';
 import Detail from './components/Detail';
 import MovieList from './components/MovieList'
 import Profile from './components/Profile';
-import LikeMovie from './components/LikeMovie';
+import FavoriteMovie from './components/FavoriteMovie';
 import PrivateRoutes from './components/PrivateRoutes';
 
 
@@ -47,7 +47,7 @@ export default function App() {
           <Route element={<PrivateRoutes />}>   
             <Route path='/' element={<MovieList/>}/>
             <Route path='/profile' element={<Profile />} /> 
-            <Route path='/favorite' element={<LikeMovie/>} />           
+            <Route path='/favorite' element={<FavoriteMovie/>} />           
           </Route>
           <Route path='/sign' element={<Sign />} />
           <Route path='/login' element={<Login />} />

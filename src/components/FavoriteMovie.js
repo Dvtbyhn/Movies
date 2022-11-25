@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Modals from './Modal';
-import "../Style/LikeMovie.css"
+import "../Style/FavoriteMovie.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteToFavorite, favoriteMovies, filteredFavorites } from '../redux/movies/moviesSlice';
 
