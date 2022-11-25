@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
@@ -19,8 +19,9 @@ export default function Detail() {
   const { id } = useParams()
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/movies/${id}`)
-      .then(response => setMovie(response.data))
+       fetch(`http://localhost:3001/movies/${id}`)
+      .then(response => response.json())
+      .then(data => setMovie(data))
   })
 
   return (
