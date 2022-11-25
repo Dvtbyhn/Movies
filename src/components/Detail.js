@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
-import "./Style/Detail.css"
+import "../Style/Detail.css"
 import { deleteToFavorite, addToFavorite, favoriteMovies } from '../redux/movies/moviesSlice';
 import { authState } from '../redux/auth/authSlice';
 

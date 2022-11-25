@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Modals from './Modal';
-import "./Style/LikeMovie.css"
+import "../Style/LikeMovie.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteToFavorite, favoriteMovies, filteredFavorites } from '../redux/movies/moviesSlice';
 
@@ -28,7 +28,7 @@ export default function LikeMovie() {
                                     <>
                                         <div className='col-xs-12 col-sm-12 col-md-6 col-lg-3 g-5'>
                                             <div key={id} className="card text-center">
-                                                <NavLink to={`/detail/${movie.id}`}>
+                                                <NavLink to={`detail/${movie.id}`}>
                                                     <img src={movie.imageURL}
                                                         className="card-img-top" alt={movie.name} />
                                                 </NavLink>

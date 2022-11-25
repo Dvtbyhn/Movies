@@ -6,7 +6,7 @@ import { authState, login } from '../redux/auth/authSlice'
 import toast from 'react-hot-toast'
 import { faUserGear, faKey, faUser, faImage } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import "./Style/Profile.css"
+import "../Style/Profile.css"
 
 
 export default function Profile({ loading }) {

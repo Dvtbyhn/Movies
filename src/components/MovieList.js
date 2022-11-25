@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import "./Style/style.css"
+import "../Style/style.css"
 import { NavLink, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import Footer from './Footer';

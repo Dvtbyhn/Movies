@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { register } from '../Firebase'
-import "./Style/Sign.css"
+import "../Style/Sign.css"
 import { useNavigate } from 'react-router-dom'
 import { faUser, faKey,faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

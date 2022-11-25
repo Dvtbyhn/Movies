@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { authState, logout as logoutHandle } from '../redux/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../Firebase';
-import "./Style/Header.css"
+import "../Style/Header.css"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -36,11 +36,11 @@ export default function Header() {
 
   return (
     <>
+   
       {user ? <Navbar className='nav' expand="lg">
         <Container>
           <Navbar.Brand className='navbar-brand'>Best Movies</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
               <ul >
@@ -78,9 +78,9 @@ export default function Header() {
                         >Profil</div></NavLink></div> : null}
                 </li>
                 <li >
-                  {user ? <NavLink to={"/"}>
-                    <button className='btn' onClick={handleLogout}
-                    >Çıkış Yap</button></NavLink> : null}
+                  {user ?<div className='mt-2'   onClick={handleLogout}
+                    > <NavLink className='twiceBtn 'to={"/"}>
+                    Çıkış Yap</NavLink></div> : null}
                 </li>
               </ul>
             </Nav>

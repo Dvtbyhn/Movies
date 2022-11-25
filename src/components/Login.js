@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Style/Login.css"
+import "../Style/Login.css"
 import { signIn } from '../Firebase'
 import { useNavigate } from 'react-router-dom'
 import { faUser, faKey, faUserTie } from '@fortawesome/free-solid-svg-icons'
