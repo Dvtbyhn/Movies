@@ -77,13 +77,13 @@ ul li {
   color: white;
 }
 
-.twiceBtn {
+.threeBtn {
   text-decoration: none;
   color: white;
   font-size: large;
 }
 
-.twiceBtn:hover {
+.threeBtn:hover {
   color: white;
 }
 
@@ -144,18 +144,8 @@ ul li {
   .btn {
     color: white;
   }
-  .btn:hover {
-    color: white;
-  }
-
-  .twiceBtn {
-    text-decoration: none;
-    color: white;
+  .threeBtn {
     font-size: large;
-  }
-
-  .twiceBtn:hover {
-    color: white;
   }
 
   .outBtn {

@@ -61,7 +61,7 @@ export default function Header() {
                 <li>
                   {user ?
                     <div className='mt-2'>
-                      <NavLink className='twiceBtn' to={`/favorite`}>
+                      <NavLink className='threeBtn' to={`/favorite`}>
                         <div>
                           Favorilerim
                           <Badge bg='danger'>
@@ -73,13 +73,13 @@ export default function Header() {
                   {user ?
                     <div className='mt-2'>
                       <NavLink
-                        className='twiceBtn'
+                        className='threeBtn'
                         to={"/profile"}><div
                         >Profil</div></NavLink></div> : null}
                 </li>
                 <li >
                   {user ?<div className='mt-2'   onClick={handleLogout}
-                    > <NavLink className='twiceBtn 'to={"/"}>
+                    > <NavLink className='threeBtn 'to={"/"}>
                     Çıkış Yap</NavLink></div> : null}
                 </li>
               </ul>
