@@ -4,7 +4,7 @@ import "../Style/Filter.css"
 import { categoryMovies, moviesAll, categories } from '../redux/movies/moviesSlice'
 
 
-export default function Filter() {
+export default function Category() {
 
   const movies = useSelector(moviesAll)
   const category = useSelector(categories)

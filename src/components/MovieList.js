@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Footer from './Footer';
 import { addToFavorite, deleteToFavorite, favoriteMovies, moviesAll, categories } from '../redux/movies/moviesSlice';
 import { authState } from '../redux/auth/authSlice';
-import Filter from './Filter';
+import Filter from './Category';
 
 export default function MovieList() {
     const user = useSelector(authState)

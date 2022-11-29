@@ -17,12 +17,9 @@ import FavoriteMovie from './components/FavoriteMovie';
 import PrivateRoutes from './components/PrivateRoutes';
 
 
-
-
 export default function App() {
 
   const isLoading = useSelector(state => state.movies.isLoading)
-
 
   const dispatch = useDispatch()
   const user = useSelector(authState)
@@ -39,11 +36,8 @@ export default function App() {
     return <Loading />
   }
 
-
-
-
   return (
-    <div>
+    <>
       <Toaster />
       <Header />
       <Outlet />
@@ -56,11 +50,8 @@ export default function App() {
         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />
         <Route path='/detail/:id' element={<Detail />} />
-
         <Route path='*' element={<Page404 />} />
       </Routes>
-
-
-    </div>
+    </>
   )
 }
