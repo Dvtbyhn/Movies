@@ -26,7 +26,7 @@ export default function MovieList() {
         return movies.filter((item) => item.kind === category)
     }
 
-    const categoryFilter = useMemo(getFilteredList, [category, movies])
+    const moviesCategory = useMemo(getFilteredList, [category, movies])
 
     return (
         <>
@@ -34,8 +34,8 @@ export default function MovieList() {
                 <div className='row'>
                     <Filter />
                     {
-                        categoryFilter.filter((movie) => {
-                            return movie.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+                        moviesCategory.filter((movie) => {
+                            return movie.name.toLowerCase().indexOf(search.toLowerCase() ) !== -1
                         }).map((movie, i) => {
                             return (
                                 <div key={i} className='col-md-6 col-lg-3 p-3 '>

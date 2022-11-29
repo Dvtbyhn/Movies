@@ -36,8 +36,8 @@ const moviesSlice = createSlice({
             const delAll = []
             state.favorite = delAll
         },
-        searchMovie: (state, action) => {
-          state.search  = action.payload          
+        searchMovie: (state, action) => {     
+           state.search = action.payload
         },
         categoryMovies: (state, action) => {
             state.category = action.payload
