@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Footer from './Footer';
 import { addToFavorite, deleteToFavorite, favoriteMovies, moviesAll, categories } from '../redux/movies/moviesSlice';
 import { authState } from '../redux/auth/authSlice';
-import Filter from './Category';
+import Category from './Category';
 
 export default function MovieList() {
     const user = useSelector(authState)
@@ -32,7 +32,7 @@ export default function MovieList() {
         <>
             <div className='container'>
                 <div className='row'>
-                    <Filter />
+                    <Category />
                     {
                         moviesCategory.filter((movie) => {
                             return movie.name.toLowerCase().indexOf(search.toLowerCase() ) !== -1
