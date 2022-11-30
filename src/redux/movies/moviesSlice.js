@@ -15,7 +15,7 @@ const moviesSlice = createSlice({
         isLoading: false,
         favorite: [],
         search: "",
-      
+
     },
     reducers: {
         addToFavorite: (state, action) => {
@@ -36,8 +36,8 @@ const moviesSlice = createSlice({
             const delAll = []
             state.favorite = delAll
         },
-        searchMovie: (state, action) => {     
-           state.search = action.payload
+        searchMovie: (state, action) => {
+            state.search = action.payload
         },
         categoryMovies: (state, action) => {
             state.category = action.payload
@@ -51,7 +51,7 @@ const moviesSlice = createSlice({
             state.moviesAll = action.payload
             state.isLoading = false;
         },
-        [fetchMovies.rejected]: (state,action) => {
+        [fetchMovies.rejected]: (state, action) => {
             state.isLoading = false;
             state.error = action.payload
         }

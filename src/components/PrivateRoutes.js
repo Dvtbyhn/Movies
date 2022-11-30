@@ -5,12 +5,7 @@ import { useSelector } from 'react-redux'
 
 
 export default function PrivateRoutes() {
- 
-  
+    
     const user = useSelector(authState)
-
-    return user ? <Outlet  /> : <Navigate to={"/login"} />
-   
-
-
+    return user ? <Outlet /> : <Navigate to={"/login"} />
 }
