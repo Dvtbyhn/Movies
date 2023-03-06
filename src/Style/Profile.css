@@ -1,0 +1,28 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 5rem;
+}
+
+.profile {
+  height: 43rem;
+  background: linear-gradient(to right, #1a2d3f, #98a4af);
+  padding: 60px;
+}
+
+.userGear {
+  font-size: 5rem;
+}
+
+@media (min-width: 360px) and (max-width: 741px) {
+  .profile {
+    padding: 10px;
+    height: 35rem;
+  }
+  .userGear {
+    font-size: 50px;
+  }
+}

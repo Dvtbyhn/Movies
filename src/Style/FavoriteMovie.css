@@ -1,0 +1,12 @@
+.head {
+  margin-top: 12rem;
+  color: white;
+  text-align: center;
+}
+
+.card {
+  background: #bdc3c7;
+  background: linear-gradient(to top, #010c18, #71a1c2);
+  color: white;
+  box-shadow: 0px 0px 15px white;
+}

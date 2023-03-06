@@ -1,0 +1,174 @@
+.nav {
+  background: linear-gradient(to left, #adb8c5, #03192e);
+  border-bottom: 1px solid rgb(8, 172, 82);
+}
+.navbar-brand {
+  color: white;
+  font-size: xx-large;
+}
+.navbar-brand:hover {
+  color: white;
+}
+ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.user-link {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  padding: 12px;
+}
+
+.user-link:hover {
+  color: white;
+}
+
+#home {
+  color: white;
+  font-size: x-large;
+}
+
+.home:hover {
+  color: white;
+}
+
+.user-name {
+  color: white;
+}
+
+ul {
+  display: inline-flex;
+}
+
+ul li {
+  padding: 5px;
+  margin-top: 8px;
+}
+.form-header {
+  max-width: 20%;
+  margin: auto;
+  margin-top: 33px;
+}
+.icon {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon i {
+  position: absolute;
+}
+
+.searchIcon {
+  padding: 10px;
+  min-width: 50px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.buttons {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+
+}
+
+.buttons:hover{
+  color: rgb(241, 236, 236);
+  transition: 200ms color;
+}
+
+.outBtn {
+  color: white;
+  background-color: #062b42;
+  border: none;
+  text-decoration: none;
+}
+
+.btn {
+  font-size: large;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.no-list {
+  display: flex;
+}
+.no-user {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+}
+.no-user:hover {
+  color: white;
+}
+
+@media (max-width: 990px) {
+  .navbar-brand {
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+  }
+  .user-link {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+  }
+
+  #home {
+    font-size: large;
+  }
+  ul {
+    display: grid;
+    text-align: center;
+  }
+  ul li {
+    margin-top: 3px;
+  }
+  .form-header {
+    max-width: 30%;
+    margin: auto;
+  }
+  .btn {
+    color: white;
+  }
+  .buttons {
+    font-size: large;
+  }
+
+  .outBtn {
+    color: white;
+    background-color: #062b42;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn {
+    font-size: large;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .user-link {
+    text-decoration: none;
+    color: white;
+  }
+
+  ul li {
+    margin: 0px;
+    margin-top: 7px;
+  }
+
+  .form-header {
+    margin-top: 30px;
+  }
+}

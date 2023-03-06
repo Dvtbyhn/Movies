@@ -1,0 +1,45 @@
+.container-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.card-sign {
+  padding: 50px;
+  border-radius: 22px;
+  height: 40rem;
+  background: white;
+  box-shadow: 0 0 5px 2px rgb(156, 144, 144);
+}
+
+
+ .userPlus {
+  font-size: 160px;
+  color: rgb(13, 13, 71);
+}
+
+input {
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+
+
+@media (min-width:360px) and (max-width:741px) {
+  .card-sign {
+    padding: 10px;
+    height: 25rem;
+    background: white;
+    box-shadow: 0 0 5px 2px rgb(156, 144, 144);
+  }
+   .userPlus {
+    font-size: 50px;
+    color: rgb(13, 13, 71);
+  }
+}

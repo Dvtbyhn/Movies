@@ -1,0 +1,142 @@
+{
+  "movies": [
+
+    {
+      "name": "The Godfather",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vseIVRdN4xasYwStQIi6SI7DcEu.jpg",
+      "rating": "9.2",
+      "overview": "Mario Puzo'nun çok satan kitabından Puzo ve yönetmen Francis Ford Coppola tarafından sinemaya uyarlanan eser, 40'lar ve 50'lerin Amerika'sında, bir İtalyan mafya ailesinin destansı öyküsünü konu alıyor. ",
+      "id": 14,
+      "kind": "Benzersiz"
+    },
+    {
+      "name": "Taxi Driver",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ekstpH614fwDX8DUln1a2Opz0N8.jpg",
+      "rating": "8.8",
+      "overview": "Hem Martin Scorsese’nin hem de Robert De Niro’nun filmografilerindeki belki de bu en çarpıcı filmde, 70’lerin Manhattan gecelerinde taksicilik yapan Vietnam gazisi Travis’le birlikte sokaklardayız.Hikaye boyunca etrafındaki hayatla ve yolunun kesişeceği toplumun pisliğiyle (bir çocuk fahişe, güzel bir sarışın, başkan adayı bir senatör, gözü dönmüş bir kadın satıcısı) bir türlü iletişim kuramayacak olan Travis, en nihayetinde ipleri eline alacaktır. Üstelik gündüzleri izlemeye gittiği belden aşağı filmlerdeki vahşi bir stilde...Sadece eşsiz senaryosu ve oyunculuklarıyla değil, sıradışı sinematografisiyle de tüm zamanların en etkili filmlerinden biri...",
+      "id": 15,
+      "kind": "Suç/Dram"
+    },
+    {
+      "name": "Come And See",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qNbMsKVzigERgJUbwf8pKyZogpb.jpg",
+      "rating": "8.8",
+      "overview": "1943 yılında Belarus’ta Naziler tarafından gerçekleştirilen vahşeti küçük bir çocuğun hikayesi üzerinden bu sarsıcı ve rahatsız edici film, gelmiş geçmiş en korkunç savaş filmlerinden biridir. Savaşın olayların doğal akışını mahveden yakıcı gücünü anlatıyor. Gerçeklere dayanan filmin kahramanı, Beyaz Rusya'lı on altı yaşındaki Flyora. Başta yalnızca bir çocuk olan Flyora, ormana kaçar ve partizanlara katılır. Nazilerin vahşetini yaşadıktan sonra ise Flyora büyür, hatta yaşlanır. Bir zamanlar taptaze olan çocuksu yüzü artık kırışıklıklarla doludur.",
+      "id": 16,
+      "kind": "Dram/Tarih/Savaş",
+      "comments": "Çok iyi bir film"
+    },
+    {
+      "name": "Leon",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yI6X2cCM5YPJtxMhUd3dPGqDAhw.jpg",
+      "rating": "8.5",
+      "overview": "Mathilda, New York'ta yaşayan ailesi dağılmış 12 yaşında küçük bir kızdır. Ailesini sevmeyen Mathilda için en değerli varlığı küçük kardeşidir. Babası uyuşturucu işlerine bulaşınca mafya ailenin tüm bireylerini öldürür. O sırada alışverişte olan Mathilda ise olaydan kılpayı kurtulur ve Leon'un kaldığı daireye saklanır. Leon ise çok soğukkanlı bir katildir. Ancak Mathilda'ya karşı içten bir sevgi besler ve ona kol kanat gerer. Aslında babalık, arkadaşlık gibi kavramlar ona çok yabancıdır.",
+      "id": 17,
+      "kind": "Suç/Dram/Aksiyon"
+    },
+    {
+      "name": "Winter Light",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wDxrEssdjFWYwIZLbr06RQNcg1q.jpg",
+      "rating": "9.0",
+      "overview": "İnancını kaybetmiş bir papazın tanrıyı sorgulayışına hatta sorgulamaktan da yılmış durgunluğu anlatılıyor. Ailesinin hayalini gerçekleştirerek papaz olmuş, gençliğinde yüksek idealleri olan, karısına aşık, karısı öldükten sonra hayatın ortasında şaşkına dönen ve hayatının anlamını kaybeden bir papaz hikayesi anlatılıyor.",
+      "id": 18,
+      "kind": "Dram"
+    },
+    {
+      "name": "The Seventh Seal",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wcZ21zrOsy0b52AfAF50XpTiv75.jpg",
+      "rating": "8.7",
+      "overview": "Ortaçağ'da Haçlı Seferleri'nden dönen bir şövalye savaşlar sırasında hep ölümle burun buruna gelse de, hayatta kalmayı başarmıştır. Ancak tam huzura kavuşacağını düşünürken, karşısına onun hayatını almaya gelmiş olan ölüm çıkar. Ölümle pazarlığa oturan savaşçı, onu bir satranç oyununa davet eder. Yolculuğu sırasında kendisine eşlik eden ölümle bir taraftan oyun oynayan şövalye, yol boyunca çok farklı insanlara ve durumlara tanık olacaktır.",
+      "id": 19,
+      "kind": "Fantastik/Dram"
+    },
+    {
+      "name": "On The WaterFront",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fKjLZy9W8VxMOp5OoyWojmLVCQw.jpg",
+      "rating": "8.6",
+      "overview": "Joey Doyle, rıhtımda öldürülür ve kimse ölüm hakkında birşey anlatmaya cesaret edemez. Terry Malloy ise bu limanda çalışan bir işçidir ve aynı zamanda eski bir boksördür. Terry kısa zamanda, limandaki patronların dikkatini çeker. Bu sendika ağaları limanda kendi düzenlerini kurmuştur. Ancak, Terry onların sandığından çok daha güçlü bir karakterdir.",
+      "id": 20,
+      "kind": "Suç/Dram"
+    },
+    {
+      "name": "Recep İvedik",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/heKqSDyQuVzPrQIuvY5mqC3oc6M.jpg",
+      "rating": "6.0",
+      "overview": "Adamın biri yolda cüzdanını düşürür, sokaklarda yaşayan başka bir adam tam cüzdanı kapıp kaçacakken Recep İvedik onunla mücadeleye girer. Sonunda, sahibine teslim etmek üzere, evsiz adamın elinden cüzdanı almayı başaran Recep İvedik kafasını çevirdiği anda cüzdan sahibinin çoktan gittiğini farkeder. Akşam evinde televizyon seyreden Recep İvedik, cüzdanın Antalyalı çok önemli bir iş adamına ait olduğunu öğrenince arabasına atlar ve güneye doğru yola koyulur.",
+      "id": 21,
+      "kind": "Komedi"
+    },
+    {
+      "name": "A.R.O.G",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oWhCozl58kpEtM2TdcH3Vs6SUCV.jpg",
+      "rating": "7.8",
+      "overview": "Komutan Logar, halı tüccarı Arif'i zamanda bir milyon yıl geriye gönderir. Burada dinozorlarla karşılaşan Arif, sakalını tıraş etmenin bir yolunu da bulur. ",
+      "id": 22,
+      "kind": "Komedi"
+    },
+    {
+      "name": "Before Sunset",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gycdE1ARByGQcK4fYR2mgpU6OO.jpg",
+      "rating": "7.0",
+      "overview": "Amerikalı yazar Jesse ile Fransız Celine, Budapeşte'den Viyana'ya giden bir trende tanışırlar. Birbirlerinden hoşlansalar da, herşey orada kalır. Bundan dokuz yıl sonra yeni kitabının tanıtımı için Fransa'ya gelen Jesse, uçağının kalkmasına çok az bir zaman kala Paris'te Celine ile buluşur.",
+      "id": 23,
+      "kind": "Romantik"
+    },
+    {
+      "name": "Legends Of The Fall ",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t1KPGlW0UGd0m515LPQmk2F4nu1.jpg",
+      "rating": "8.0",
+      "overview": "1900'lerin Amerikasında orduda görevli albay William Ludlow görevinden ayrılarak, Montana'da kaya dağlarında bir evde 3 oğlu ile yaşamaya başlar. Bu arada 1. Dünya Savaşı başlar. Albayın tüm karşı çıkmalarına rağmen 3 kardeş savaşa katılır. En küçük oğlan Samuel'in öldüğü savaşın ardından diğer oğlu Tristan Samuel'in nişanlısı Susannah'la yakınlaşmaya başlar ve aralarında bir aşk başlar. En büyük kardeş Alfred'inde Susannah'tan hoşlanmaya başlamasıyla olaylar değişir ve gelişir. Bu arada kardeşinin ölümünden kendini sorumlu tutan Tristan bir çıkmazın içine girmiş bulunmaktadır.",
+      "id": 24,
+      "kind": "Macera/Dram/Romantik"
+    },
+    {
+      "name": "Fight Club",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yjMuqAyJUoQZGWsZ0vZuYj5inAR.jpg",
+      "rating": "8.8",
+      "overview": "Dövüş kulübünün ilk kuralı, dövüş kulübü hakkında konuşmamaktır. Dövüş kulübünün ikinci kuralı da, kulüp hakkında konuşmamaktır... Filmin baş kişisi, sıradan hayatının girdaplarında bunalımlar geçiren bir sigorta müfettişi olan Jack, Kanserli olmadığı halde, uykusuzluğunu yenmek ve hayatına anlam katmak adına, kanserlilere moral destek sağlayan terapi gruplarına katılır. Orada, Marla Singer adlı bir kızla garip bir yakınlık kurar. Bir iş gezisi dönüşü ise, Tyler Durden adlı egzantrik karakterle tanışır. Durden, Jack'in olmak isteyip de olamadığı adam gibidir. Tyler'ın girişimleriyle bir yeraltı faaliyeti olarak başlayan dövüş kulübü, Jack'e hayatında yepyeni kapılar açacaktır... Ve tabii, bu kapılardan ister istemez Marla geçecektir... Fakat... Tyler Durden gerçekte kimdir?",
+      "id": 25,
+      "kind": "Gerilim/Dram"
+    },
+    {
+      "name": "Once Upon A Tıme In Anatolia",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jKnV5JDArGn6UyrI9HiYzs7Zykn.jpg",
+      "rating": "8.0",
+      "overview": "Gece bitmek bilmez. Anadolu’nun bozkırında saatlerdir süren bir cinayet soruşturması herkesi yormuştur. Savcı, komiser, jandarma ve doktordan oluşan bir ekip, Kenan’la Ramazan’ın gömdüğü cesedi aramaktadır. Kenan, Yaşar’ı gömerken sarhoş olduğunu, yalnızca top gibi bir ağacı ve bir çeşmeyi hatırladığını söylemiştir. Ceset ya o tepenin ardındadır, ya bu tepenin… Engebeli, yılankavi yolların sırtında iş uzadıkça uzar. Araba farlarının titrek ışığında kuru otlar savrulur, gölgeler büyür, karanlık adım adım koyulaşır. Arap Ali, doktora yaklaşıp “Çoluk çocuk sahibi olunca anlatacak bir hikâyen olur. Fena mı?” der. “Bir zamanlar Anadolu’da, dersin, ücra bir yerde görev yaparken işte başımdan böyle böyle olaylar geçti dersin. Anlatırsın yani masal gibi.”",
+      "id": 26,
+      "kind": "Dram/Suç"
+    },
+    {
+      "name": "Scarface",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dbBPeL8okEqWJ4kVn1roLUtjMmn.jpg",
+      "rating": "8.3",
+      "overview": "Yaralı Yüz; Brian DePalma'nın yönettiği, Al Pacino'nun başrol oynadığı 1983 yapımı suç ve drama filmidir. Aynı isimli 1932 yapımı Yaralı Yüz'ün serbest uyarlamasıdır. ",
+      "id": 27,
+      "kind": "Dram/Suç"
+    },
+    {
+      "name": "Winter Sleep",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/m4qvMj51vfMOxCvZ0KeWRfowPYl.jpg",
+      "rating": "8.2",
+      "overview": "Aydın emekli bir tiyatrocudur; oyunculuğu bıraktıktan sonra Kapadokya'ya babasından yadigar kalan butik oteli işletmek için geri döner. Aydın o günden sonra başlayan kış uykusu bu gözlerden ırak otelin içerisindeki gündelikleriyle, kâh yerel bir gazeteye köşe yazıları yazarak kâh her zaman niyetlendiği ancak bir türlü başlayamadığı tiyatro tarihi kitabını yazmayı düşünerek geçer. Tüm bu süreçte hayatında iki kadın vardır: Kendisine her anlamda uzak ve soğuk davranan genç karısı Nihal ve boşandıktan sonra yanlarına taşınan kız kardeşi Necla... Kışın bastırması ve artan kar yağışı bu küçük taşrada en çok Aydın'ın sinirlerine dokunur ve onu uzaklara gitmeye teşvik eder...",
+      "id": 28,
+      "kind": "Dram"
+    },
+    {
+      "name": "Forrest Gump",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+      "rating": "8.9",
+      "overview": "Forrest Gump, zeka seviyesi 75 olan bir erkeğin hayatını ele alıyor. Zeka seviyesi nedeni ile devlet okullarına girmekte bile zorlanan Forrest Gump zamanla akla mantığa uymayan başarılara imza atıyor. Her ne kadar zeka seviyesi düşük olsa da fiziksel olarak son derece sağlam olan Forrest Gump, zamanla gelişen olaylar zincirinde bizi hayal edemeyeceğimiz bir dünyaya götürüyor.",
+      "id": 29,
+      "kind": "Komedi/Dram/Romantik"
+    },
+    {
+      "name": "Snatch",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/26Pdbk6iNjNiHi1KnSoytCKnTSQ.jpg",
+      "rating": "8.2",
+      "overview": "Benicio Del Toro ve gangster/detektif filmlerinin demirbaşı Dennis Farrina'yı biraraya getiren film şu sloganla tanıtılıyor: Kemikler kırılıyor, elmaslar çalınıyor...Boks dünyasında kaçak iş çeviren Turkish adlı adam, namlı suçlu Brick Top'la hileli bir boks maçı için anlaşınca başına büyük bela alır.Öte yandan, başarısız bir mücevher soygunu ardından garip gelişmeler yaşanmaktadır. Garip bir biçimde iki olay birbirine karışarak ilerler ve kahramanlar için olmasa da bizim için eğlendirici bir curcuna çıkar ortaya...",
+      "id": 30,
+      "kind": "Suç/Komedi"
+    }
+  ]
+}
